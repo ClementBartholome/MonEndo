@@ -72,6 +72,22 @@ const apiService = {
             console.error(error);
             return null;
         }
+    },
+    
+    async deleteDonneesDouleurs(donneesDouleursId: number) {
+        try {
+            const response = await axios.delete(`${API_URL}DonneesDouleurs/${donneesDouleursId}`);
+
+            if (response.status === 204) {
+                console.log(response.data);
+                return response.data;
+            } else {
+                throw new Error('Delete failed');
+            }
+        } catch (error: any) {
+            console.error(error);
+            return null;
+        }
     }
 }
 
