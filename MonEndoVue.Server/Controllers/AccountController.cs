@@ -75,5 +75,29 @@ namespace MonEndoVue.Server.Controllers
             await signInManager.SignOutAsync();
             return Ok();
         }
+        
+        [HttpPost("forceChangePassword")]
+        public async Task<IActionResult> ForceChangePassword(string userId, string newPassword)
+        {
+            var user = await userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                return NotFound("User not found");
+            }
+
+            var removePasswordResult = await userManager.RemovePasswordAsync(user);
+            if (!removePasswordResult.Succeeded)
+            {
+                return BadRequest(removePasswordResult.Errors);
+            }
+
+            var addPasswordResult = await userManager.AddPasswordAsync(user, newPassword);
+            if (addPasswordResult.Succeeded)
+            {
+                return Ok();
+            }
+
+            return BadRequest(addPasswordResult.Errors);
+        }
     }
 }
