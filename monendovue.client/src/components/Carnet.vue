@@ -2,7 +2,7 @@
   <section class="flex flex-wrap h-auto container mx-auto py-8 bg-clearer rounded-3xl shadow-md ml-auto">
     <div class="w-full">
       <div class="flex gap-8">
-        <h1 class="text-3xl font-bold mb-8">Aujourd'hui - {{ formatDate(value || new Date()) }}</h1>
+        <h1 class="text-3xl font-bold md:mb-8">Aujourd'hui - {{ formatDate(value || new Date()) }}</h1>
         <!--        <Popover>-->
         <!--          <div class="relative">-->
         <!--            <PopoverTrigger as-child>-->
@@ -22,7 +22,7 @@
         <!--          </div>-->
         <!--        </Popover>-->
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 responsive-layout">
         <Card @click="$emit('show-pain-form')">
           <CardHeader>
             <i class="material-symbols-outlined" style="font-size: 48px;">sick</i>
@@ -65,8 +65,9 @@
               </Button>
             </router-link>
           </CardHeader>
-          <CardContent class="flex justify-between px-16">
+          <CardContent class="flex justify-evenly px-16">
             <div v-if="isLoading" class="px-4">Chargement des données...</div>
+            <div v-else-if="upcomingEvents.length === 0" class="px-4">Pas de rendez-vous à venir</div>
             <div v-else v-for="event in upcomingEvents" :key="event.id" class="rounded-lg shadow-md p-4 mb-4 bg-white flex flex-col min-w-40">
               <h2>{{ event.summary }}</h2>
               <p>{{event.description}}</p>

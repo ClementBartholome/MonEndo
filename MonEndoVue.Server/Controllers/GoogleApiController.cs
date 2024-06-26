@@ -11,7 +11,9 @@ namespace MonEndoVue.Server.Controllers;
 [Route("[controller]")]
 public class GoogleApiController : ControllerBase
 {
-   
+    private string clientId = "309720076969-f8emq2flsfap0i4jtrl26f6f1fb8ckmi.apps.googleusercontent.com";
+    private string clientSecret = "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";
+    
     [HttpGet("authorize")]
     public async Task<IActionResult> Authorize(string code, string state)
     {

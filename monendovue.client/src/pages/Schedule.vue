@@ -49,7 +49,7 @@ const fetchEvents = async () => {
   events.value = [];
   loading.value = true;
   const calendarOptions = {
-    googleCalendarApiKey: 'AIzaSyAhhkbsrZFQoXhTA5C-TdkFgSqFZ-rNOYI',
+    googleCalendarApiKey: 'AIzaSyBUZn9KlA-tPkkaplM0m8B-OhznnXviTc4',
     googleCalendarId: "clementoss@gmail.com"
   };
 
@@ -96,7 +96,7 @@ const refreshData = async () => {
 let calendarOptions = computed(() => ({
   plugins: [googleCalendarPlugin, dayGridMonth, interactionPlugin],
   initialView: 'dayGridMonth',
-  googleCalendarApiKey: 'AIzaSyAhhkbsrZFQoXhTA5C-TdkFgSqFZ-rNOYI',
+  googleCalendarApiKey: 'AIzaSyBUZn9KlA-tPkkaplM0m8B-OhznnXviTc4',
   events: events.value,
   height: 850,
   locale: frLocale,
@@ -115,7 +115,7 @@ watch(events, () => {
   calendarOptions = computed(() => ({
     plugins: [googleCalendarPlugin, dayGridMonth, interactionPlugin],
     initialView: 'dayGridMonth',
-    googleCalendarApiKey: 'AIzaSyAhhkbsrZFQoXhTA5C-TdkFgSqFZ-rNOYI',
+    googleCalendarApiKey: 'AIzaSyBUZn9KlA-tPkkaplM0m8B-OhznnXviTc4',
     events: events.value,
     height: 850,
     locale: frLocale,

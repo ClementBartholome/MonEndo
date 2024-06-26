@@ -12,6 +12,7 @@
 
 <script setup lang="ts">
 import {ref, watch, nextTick, onMounted} from 'vue'
+import type {PropType} from 'vue'
 import DataTable from 'datatables.net-vue3';
 import DataTablesCore from 'datatables.net';
 import apiService from "@/services/apiService";
@@ -24,10 +25,10 @@ const entries = ref<Entry[]>([]);
 
 type Column = { data: string };
 
-
 const props = defineProps({
   entries: Array as () => Entry[],
   columns: Array as () => Column[],
+  deleteFunction: Function as PropType<(id: number) => Promise<void>>,
 });
 
 onMounted(async () => {
@@ -54,7 +55,7 @@ const deleteEntry = async (id: number) => {
   const index = entries.value.findIndex(entry => entry.id === id);
   if (index !== -1) {
     entries.value.splice(index, 1);
-    await apiService.deleteDonneesActivitePhysique(id);
+    await props.deleteFunction!(id);
   } else {
     console.error(`Entry with id ${id} not found`);
   }

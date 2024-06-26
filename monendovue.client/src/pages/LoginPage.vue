@@ -31,14 +31,14 @@ const onSubmit = async (event: any) => {
   const user = await auth.login(email, password);
   if (user) {
     toast({
-      title: 'Successfully logged in',
-      description: `Welcome back, ${user.userName}!`,
+      title: 'Connexion réussie',
+      description: `Bon retour, ${user.userName}!`,
     });
     router.push('/');
   } else {
     toast({
-      title: 'Login failed',
-      description: 'Please check your email and password.',
+      title: 'Connexion échouée',
+      description: 'Veuillez vérifier votre email et votre mot de passe.',
     });
   }
 }

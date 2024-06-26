@@ -62,13 +62,14 @@ function formatDate(dateString: string) {
 </script>
 
 <template>
-  <div :class="cn('w-full h-[400px] flex flex-col items-end', $attrs.class ?? '')">
+  <div :class="cn('w-full h-[400px] md:h-[270px] flex flex-col items-end', $attrs.class ?? '')">
     <ChartLegend v-if="showLegend" v-model:items="legendItems" @legend-item-click="handleLegendItemClick" />
 
     <VisXYContainer
       :margin="{ left: 20, right: 20 }"
       :data="data"
       :style="{ height: isMounted ? '100%' : 'auto' }"
+      :yDomain="[0, 10]"
     >
       <ChartCrosshair v-if="showTooltip" :colors="colors" :items="legendItems" :index="index" :custom-tooltip="customTooltip" />
 
@@ -101,13 +102,13 @@ function formatDate(dateString: string) {
           :tick-format="yFormatter"
           :domain-line="false"
           :grid-line="showGridLine"
-          :domain="[0, 10]" 
-      :attributes="{
-      [Axis.selectors.grid]: {
-      class: 'text-muted',
-      },
-      }"
-      tick-text-color="hsl(var(--vis-text-color))"
+          :domain="[1, 10]"
+          :attributes="{
+        [Axis.selectors.grid]: {
+            class: 'text-muted',
+        },
+    }"
+          tick-text-color="hsl(var(--vis-text-color))"
       />
 
       <slot />
