@@ -15,7 +15,7 @@ import {ref, watch, nextTick, onMounted} from 'vue'
 import type {PropType} from 'vue'
 import DataTable from 'datatables.net-vue3';
 import DataTablesCore from 'datatables.net';
-import apiService from "@/services/apiService";
+import type {Config} from 'datatables.net';
 
 
 DataTable.use(DataTablesCore);
@@ -45,10 +45,10 @@ const options = {
   info: false,
   paging: false,
   order: [[1, 'desc']],
-  createdRow: function (row, data) {
-    row.setAttribute('data-id', data.id);
+  createdRow: function (row: any, data: any) {
+    (row as Element).setAttribute('data-id', data.id);
   },
-};
+} as Config;
 
 
 const deleteEntry = async (id: number) => {

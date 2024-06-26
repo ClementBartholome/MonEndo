@@ -192,6 +192,8 @@ import {
 } from '@/components/ui/dialog'
 import Datatable from "@/components/Datatable.vue";
 
+
+
 import {parse} from 'date-fns';
 
 const authStore = useAuthStore();
@@ -201,7 +203,7 @@ type Entry = Record<string, any>;
 const entries = ref<Entry[]>([]);
 const isLoading = ref(true);
 
-const columns = [
+const columns: any = [
   {data: 'typeDouleur'},
   {data: 'date'},
   {data: 'time'},

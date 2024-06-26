@@ -192,7 +192,7 @@ import {parse} from 'date-fns';
 
 const authStore = useAuthStore();
 
-const columns = [
+const columns: any = [
   {data: 'typeActivite'},
   {data: 'date'},
   {data: 'time'},

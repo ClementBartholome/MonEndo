@@ -117,32 +117,15 @@
 </template>
 
 <script setup lang="ts">
-import {ref, onMounted, computed} from 'vue'
+import {computed, onMounted, ref} from 'vue'
 
-import {
-  DateFormatter,
-  type DateValue,
-  getLocalTimeZone
-} from '@internationalized/date'
+import {type DateValue, getLocalTimeZone} from '@internationalized/date'
 
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
-
-import {CalendarIcon} from '@radix-icons/vue'
-import {Calendar} from '@/components/ui/calendar'
+import {Card, CardContent, CardHeader, CardTitle,} from '@/components/ui/card'
 import {Button} from '@/components/ui/button'
-import {Popover, PopoverContent, PopoverTrigger} from '@/components/ui/popover'
-import {cn} from '@/lib/utils'
-
-import {LineChart} from '@/components/ui/chart-line'
 import apiService from "@/services/apiService";
 import googleApiService from "@/services/googleApiService";
 import {format} from 'date-fns';
-import {Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
 
 
 const carnetSanteId = 1;
@@ -173,8 +156,7 @@ onMounted(async () => {
   }
 
   if (!accessToken && !refreshToken) {
-    const authorizationUrl = await googleApiService.getAuthorizationUrl(userId);
-    window.location.href = authorizationUrl;
+    window.location.href = await googleApiService.getAuthorizationUrl(userId);
     return;
   }
 
@@ -193,8 +175,7 @@ onMounted(async () => {
         isLoading.value = false;
       } catch (refreshError) {
         console.error(refreshError);
-        const authorizationUrl = await googleApiService.getAuthorizationUrl(userId);
-        window.location.href = authorizationUrl;
+        window.location.href = await googleApiService.getAuthorizationUrl(userId);
       }
     } else {
       console.error(error);
@@ -204,8 +185,18 @@ onMounted(async () => {
 
 const value = ref<DateValue>()
 
-const upcomingEvents = ref([]);
+interface Event {
+  id: string;
+  summary: string;
+  description: string;
+  location: string;
+  start: {
+    dateTime: string;
+    date: string;
+  };
+}
 
+const upcomingEvents = ref<Event[]>([]);
 
 // const data = computed(() => {
 //   if (!donneesCarnetSante.value) {
