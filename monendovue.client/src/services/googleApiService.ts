@@ -18,7 +18,7 @@ const googleApiService = {
             }
         });
 
-        return response.data.items;
+        return response.data.items.filter(event => event.summary.includes('MED'));
     },
     async refreshAccessToken(userId: string, refreshToken: string) {
         const response = await axios.get(`https://localhost:7206/GoogleApi/refreshToken?userId=${userId}&refreshToken=${refreshToken}`);
