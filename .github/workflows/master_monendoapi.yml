@@ -60,7 +60,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'MonEndoVueApi'
-          slot-name: 'production'
-          package: '${{env.DOTNET_ROOT}}/myapp'
+          app-name: 'MonEndoApi'
+          slot-name: 'Production'
+          package: .
           
