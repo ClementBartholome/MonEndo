@@ -13,6 +13,8 @@ dist
 dist-ssr
 coverage
 *.local
+.idea/
+.gitignore
 
 /cypress/videos/
 /cypress/screenshots/
