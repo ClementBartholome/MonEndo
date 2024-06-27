@@ -1,5 +1,7 @@
+using System.Security.Claims;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Web;
 using MonEndoVue.Server.Data;
@@ -10,16 +12,24 @@ namespace MonEndoVue.Server
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            
+            if (builder.Environment.IsDevelopment())
+            {
+                builder.Services.AddDbContext<AppDbContext>(options =>
+                    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            }
+            else
+            {
+                builder.Services.AddDbContext<AppDbContext>(options =>
+                    options.UseSqlServer(Environment.GetEnvironmentVariable("SQLAZURECONNSTR_prod")));
+            }
 
             // Add services to the container.
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddMicrosoftIdentityWebApi(builder.Configuration.GetSection("AzureAd"));
-            
-            builder.Services.AddDbContext<AppDbContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
             
             builder.Services.AddAuthorization();
             
@@ -29,7 +39,7 @@ namespace MonEndoVue.Server
             {
                 options.AddPolicy("CorsPolicy", policyBuilder =>
                 {
-                    policyBuilder.WithOrigins("https://localhost:5173/", "https://monendoapi.azurewebsites.net/")
+                    policyBuilder.WithOrigins("https://monendoapi.azurewebsites.net/")
                         .AllowAnyMethod()
                         .AllowAnyHeader()
                         .WithExposedHeaders("Access-Control-Allow-Origin")
@@ -48,6 +58,36 @@ namespace MonEndoVue.Server
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
+            
+            if (app.Environment.IsDevelopment())
+            {
+                using var scope = app.Services.CreateScope();
+                var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+                await dbContext.Database.MigrateAsync();
+    
+                var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+                var rootUser = new ApplicationUser { UserName = "coralie.owczaruk@yahoo.fr", Email = "coralie.owczaruk@yahoo.fr", EmailConfirmed = true };
+
+                if (await userManager.FindByNameAsync(rootUser.UserName) == null)
+                {
+                    await userManager.CreateAsync(rootUser, "Password123$");
+                }
+            }
+
+            if (app.Environment.IsProduction())
+            {
+                using var scope = app.Services.CreateScope();
+                var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+                await dbContext.Database.MigrateAsync();
+    
+                var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+                var rootUser = new ApplicationUser { UserName = Environment.GetEnvironmentVariable("ROOT_USERNAME"), Email = Environment.GetEnvironmentVariable("ROOT_EMAIL"), EmailConfirmed = true };
+
+                if (await userManager.FindByNameAsync(rootUser.UserName) == null)
+                {
+                    await userManager.CreateAsync(rootUser, Environment.GetEnvironmentVariable("ROOT_PASSWORD"));
+                }
+            }
             
             app.MapIdentityApi<ApplicationUser>();
             
@@ -73,7 +113,7 @@ namespace MonEndoVue.Server
             app.UseAuthorization();
             app.MapControllers();
             app.MapFallbackToFile("/index.html");
-            app.Run();
+            await app.RunAsync();
         }
     }
 }
