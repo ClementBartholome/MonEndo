@@ -73,7 +73,7 @@ namespace MonEndoVue.Server.Controllers
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                throw;
+                return StatusCode(500, ex.Message);
             }
         }
         
