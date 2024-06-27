@@ -29,7 +29,7 @@ namespace MonEndoVue.Server
             {
                 options.AddPolicy("CorsPolicy", policyBuilder =>
                 {
-                    policyBuilder.WithOrigins("https://localhost:5173/")
+                    policyBuilder.WithOrigins("https://localhost:5173/", "https://monendoapi.azurewebsites.net")
                         .AllowAnyMethod()
                         .AllowAnyHeader()
                         .WithExposedHeaders("Access-Control-Allow-Origin")
