@@ -11,6 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2f99945a-a041-4f08-a884-b638ca21b13c" name="Changes" comment="socle 0.1">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MonEndoVue/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MonEndoVue/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonEndoVue.Server/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/MonEndoVue.Server/obj/rider.project.model.nuget.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,33 +31,35 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/8e941eb42f819adb116b881195158b3887a70a1c/src/DefaultBuilder/src/WebApplicationBuilder.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/8e941eb42f819adb116b881195158b3887a70a1c/src/Mvc/Mvc.Core/src/Infrastructure/ActionMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/8e941eb42f819adb116b881195158b3887a70a1c/src/Mvc/Mvc.Core/src/Infrastructure/ControllerActionInvoker.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/b8139c5ee58f1708b0e3368a1b241400edd6cbc4/src/Identity/Extensions.Core/src/UserManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/b8139c5ee58f1708b0e3368a1b241400edd6cbc4/src/Identity/Extensions.Stores/src/IdentityUser.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/3b8b000a0e115700b18265d8ec8c6307056dc94d/src/coreclr/System.Private.CoreLib/src/System/Threading/Monitor.CoreCLR.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/3b8b000a0e115700b18265d8ec8c6307056dc94d/src/libraries/System.Text.Json/src/System/Text/Json/ThrowHelper.Serialization.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/5535e31a712343a63f5d7d796cd874e563e5ac14/src/libraries/Microsoft.Extensions.Configuration.Abstractions/src/ConfigurationExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/5535e31a712343a63f5d7d796cd874e563e5ac14/src/libraries/Microsoft.Extensions.Configuration/src/ConfigurationManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/379024c0d7b82f968b5dc237a7b9164f6a147f6af295eefb6a7eec9ff453eca/AuthorizationCodeFlow.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Clementoss/source/repos/MonEndoVue/MonEndoVue.Server/Controllers/AccountController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Clementoss/source/repos/MonEndoVue/MonEndoVue.Server/Controllers/AccountController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Clementoss/source/repos/MonEndoVue/MonEndoVue.Server/Controllers/AccountController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Clementoss/source/repos/MonEndoVue/MonEndoVue.Server/Controllers/GoogleApiController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Clementoss/source/repos/MonEndoVue/MonEndoVue.Server/bin/Debug/net8.0/appsettings.Development.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Clementoss/source/repos/MonEndoVue/MonEndoVue.Server/bin/Debug/net8.0/appsettings.Development.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Clementoss/source/repos/MonEndoVue/MonEndoVue.Server/bin/Debug/net8.0/appsettings.Development.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Clementoss/source/repos/MonEndoVue/MonEndoVue.Server/bin/Debug/net8.0/appsettings.Development.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Clementoss/source/repos/MonEndoVue/MonEndoVue.Server/bin/Debug/net8.0/appsettings.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Clementoss/source/repos/MonEndoVue/MonEndoVue.Server/obj/Debug/net8.0/MonEndoVue.Server.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Clementoss/source/repos/MonEndoVue/MonEndoVue.Server/obj/Debug/net8.0/MonEndoVue.Server.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Clementoss/source/repos/MonEndoVue/MonEndoVue.Server/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Clementoss/source/repos/MonEndoVue/MonEndoVue.Server/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Clementoss/source/repos/MonEndoVue/MonEndoVue.Server/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Clementoss/source/repos/MonEndoVue/MonEndoVue.Server/appsettings.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MonEndoVue.Server/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MonEndoVue.Server/wwwroot/lib/jquery/dist/jquery.min.map" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/monendovue.client/package-lock.json" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Clementoss/source/repos/MonEndoVue/monendovue.client/package.json" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="Toolset" />
@@ -70,34 +73,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.MonEndoVue.Server: IIS Express.executor&quot;: &quot;Debug&quot;,
-    &quot;.NET Launch Settings Profile.MonEndoVue.Server: https.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.monendovue.client: run.executor&quot;: &quot;Debug&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Clementoss\\source\\repos\\MonEndoVue\\monendovue.client\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.MonEndoVue.Server: IIS Express.executor": "Debug",
+    ".NET Launch Settings Profile.MonEndoVue.Server: https.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "develop",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.monendovue.client: run.executor": "Debug",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "C:\\Users\\Clementoss\\source\\repos\\MonEndoVue\\monendovue.client\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\Clementoss\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\Clementoss\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\Clementoss\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\Clementoss\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\Clementoss\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\Clementoss\\AppData\\Local\\Symbols\\src"
     ],
-    &quot;vue.recent.templates&quot;: [
-      &quot;Vue Composition API Component&quot;
+    "vue.recent.templates": [
+      "Vue Composition API Component"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.MonEndoVue.Server: https">
     <configuration name="MonEndoVue.Server: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/MonEndoVue.Server/MonEndoVue.Server.csproj" />
@@ -190,6 +193,9 @@
       <workItem from="1719173959490" duration="691000" />
       <workItem from="1719211835899" duration="10162000" />
       <workItem from="1719237949972" duration="1949000" />
+      <workItem from="1719503554992" duration="2672000" />
+      <workItem from="1719507635048" duration="833000" />
+      <workItem from="1719511646785" duration="1513000" />
     </task>
     <task id="LOCAL-00001" summary="feat(setup): initial commit">
       <option name="closed" value="true" />
@@ -223,7 +229,55 @@
       <option name="project" value="LOCAL" />
       <updated>1719428070035</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="socle 0.1">
+      <option name="closed" value="true" />
+      <created>1719431443290</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1719431443290</updated>
+    </task>
+    <task id="LOCAL-00006" summary="socle 0.1">
+      <option name="closed" value="true" />
+      <created>1719503900077</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1719503900077</updated>
+    </task>
+    <task id="LOCAL-00007" summary="socle 0.1">
+      <option name="closed" value="true" />
+      <created>1719504655574</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1719504655574</updated>
+    </task>
+    <task id="LOCAL-00008" summary="socle 0.1">
+      <option name="closed" value="true" />
+      <created>1719511443043</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1719511443043</updated>
+    </task>
+    <task id="LOCAL-00009" summary="socle 0.1">
+      <option name="closed" value="true" />
+      <created>1719511677412</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1719511677412</updated>
+    </task>
+    <task id="LOCAL-00010" summary="socle 0.1">
+      <option name="closed" value="true" />
+      <created>1719515414733</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1719515414733</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -315,6 +369,19 @@
           </properties>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/MonEndoVue.Server/Program.cs</url>
+          <line>20</line>
+          <properties documentPath="C:\Users\Clementoss\source\repos\MonEndoVue\MonEndoVue.Server\Program.cs" containingFunctionPresentation="Method 'Main'">
+            <startOffsets>
+              <option value="653" />
+            </startOffsets>
+            <endOffsets>
+              <option value="810" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/monendovue.client/src/services/googleApiService.ts</url>
           <line>3</line>
@@ -322,5 +389,10 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Type#Microsoft.EntityFrameworkCore.DbContext" memberName="Database" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>
