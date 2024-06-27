@@ -38,35 +38,43 @@ namespace MonEndoVue.Server.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login(string email, string password)
         {
-            var result = await signInManager.PasswordSignInAsync(email, password, isPersistent: false, lockoutOnFailure: false);
-
-            if (result.Succeeded)
+            try
             {
-                var user = await userManager.FindByEmailAsync(email);
-                if (user == null)
+                var result = await signInManager.PasswordSignInAsync(email, password, isPersistent: false, lockoutOnFailure: false);
+
+                if (result.Succeeded)
                 {
-                    return Unauthorized();
+                    var user = await userManager.FindByEmailAsync(email);
+                    if (user == null)
+                    {
+                        return Unauthorized();
+                    }
+
+                    var tokenHandler = new JwtSecurityTokenHandler();
+                    var key = Encoding.ASCII.GetBytes(configuration["Jwt:Key"] ?? string.Empty);
+                    var tokenDescriptor = new SecurityTokenDescriptor
+                    {
+                        Subject = new ClaimsIdentity(new Claim[]
+                        {
+                            new Claim(ClaimTypes.Name, user.UserName!.ToString()),
+                            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
+                        }),
+                        Expires = DateTime.UtcNow.AddDays(7),
+                        SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+                    };
+                    var token = tokenHandler.CreateToken(tokenDescriptor);
+                    var tokenString = tokenHandler.WriteToken(token);
+                    var carnetSante = await carnetSanteService.GetCarnetSanteId(user.Id);
+                    return Ok(new { Token = tokenString, user.UserName, carnetSanteId = carnetSante.Id });
                 }
 
-                var tokenHandler = new JwtSecurityTokenHandler();
-                var key = Encoding.ASCII.GetBytes(configuration["Jwt:Key"] ?? string.Empty);
-                var tokenDescriptor = new SecurityTokenDescriptor
-                {
-                    Subject = new ClaimsIdentity(new Claim[] 
-                    {
-                        new Claim(ClaimTypes.Name, user.UserName!.ToString()),
-                        new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
-                    }),
-                    Expires = DateTime.UtcNow.AddDays(7),
-                    SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-                };
-                var token = tokenHandler.CreateToken(tokenDescriptor);
-                var tokenString = tokenHandler.WriteToken(token);
-                var carnetSante = await carnetSanteService.GetCarnetSanteId(user.Id);
-                return Ok(new { Token = tokenString, user.UserName, carnetSanteId = carnetSante.Id });
+                return Unauthorized();
             }
-
-            return Unauthorized();
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
         }
         
         [HttpPost("logout")]
