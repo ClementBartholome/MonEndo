@@ -16,6 +16,10 @@ namespace MonEndoVue.Server
         {
             var builder = WebApplication.CreateBuilder(args);
             
+            // Add services to the container.
+            builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddMicrosoftIdentityWebApi(builder.Configuration.GetSection("AzureAd"));
+            
             if (builder.Environment.IsDevelopment())
             {
                 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -27,9 +31,6 @@ namespace MonEndoVue.Server
                     options.UseSqlServer(Environment.GetEnvironmentVariable("SQLAZURECONNSTR_prod")));
             }
 
-            // Add services to the container.
-            builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddMicrosoftIdentityWebApi(builder.Configuration.GetSection("AzureAd"));
             
             builder.Services.AddAuthorization();
             
