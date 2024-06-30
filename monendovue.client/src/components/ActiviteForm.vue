@@ -1,104 +1,108 @@
 ﻿<template>
-  <div class="flex-column-container gap-12">
-    <div class="flex-row-container md:gap-12">
-      <section class="flex flex-wrap h-fit w-8/12 md:max-h-96 container py-8 bg-clearer rounded-3xl shadow-md ml-auto">
-        <div class="flex justify-between items-center w-full gap-4 mb-2 ">
-          <Button variant="custom" @click="$emit('close')"
-                  class="flex gap-2 items-center cursor-pointer hover:opacity-80 transition-opacity">
-            <i class="material-symbols-outlined ">arrow_back</i>
-            <span>Revenir en arrière</span>
-          </Button>
-          <div class="form-modal">
-            <Dialog>
-              <DialogTrigger class="flex gap-2 items-center cursor-pointer hover:opacity-80 transition-opacity">
-                <Button variant="custom">
-                  <span>Ajouter une activité</span>
-                  <i class="material-symbols-outlined">add</i>
-                </Button>
-              </DialogTrigger>
-              <DialogContent>
-                <DialogHeader>
-                  <DialogTitle class="text-2xl">Ajouter une activité physique</DialogTitle>
-                </DialogHeader>
-                <form class="mt-8 flex flex-col gap-6" @submit="onSubmit">
-                  <FormField v-slot="{ componentField }" name="typeActivite">
-                    <FormItem>
-                      <FormLabel>Type d'activité</FormLabel>
-                      <FormControl>
-                        <Input type="text" placeholder="Course à pied" v-bind="componentField" :autofocus="false"/>
-                      </FormControl>
-                      <FormMessage/>
-                    </FormItem>
-                  </FormField>
-                  <div class="flex items-center gap-8">
-                    <FormField v-slot="{ componentField }" name="date">
-                      <FormItem>
-                        <FormLabel>Date</FormLabel>
-                        <FormControl>
-                          <Input type="date" v-bind="componentField"/>
-                        </FormControl>
-                        <FormMessage/>
-                      </FormItem>
-                    </FormField>
-                    <FormField v-slot="{ componentField }" name="time">
-                      <FormItem>
-                        <FormLabel>Heure</FormLabel>
-                        <FormControl>
-                          <Input type="time" v-bind="componentField"/>
-                        </FormControl>
-                        <FormMessage/>
-                      </FormItem>
-                    </FormField>
-                  </div>
-                  <div class="flex items-center gap-8">
-                    <FormField v-slot="{ componentField }" name="duree">
-                      <FormItem>
-                        <FormLabel>Durée de l'activité</FormLabel>
-                        <FormControl>
-                          <Input type="number" placeholder="Durée en minutes" v-bind="componentField"/>
-                        </FormControl>
-                        <FormMessage/>
-                      </FormItem>
-                    </FormField>
-                    <FormField v-slot="{ componentField }" name="intensite">
-                      <FormItem>
-                        <FormLabel>Intensité de l'activité</FormLabel>
-                        <FormControl>
-                          <Input type="number" placeholder="1 à 10" min="1" v-bind="componentField"/>
-                        </FormControl>
-                        <FormMessage/>
-                      </FormItem>
-                    </FormField>
-                  </div>
-                  <FormField v-slot="{ componentField }" name="effetDouleur">
-                    <FormItem>
-                      <FormLabel>Effet sur la douleur (sur une échelle de 1 à 10)</FormLabel>
-                      <FormControl>
-                        <Input type="number" placeholder="1 à 10" v-bind="componentField"/>
-                      </FormControl>
-                      <FormMessage/>
-                    </FormItem>
-                  </FormField>
-                  <FormField v-slot="{ componentField }" name="commentaire">
-                    <FormItem>
-                      <FormLabel>Un commentaire ? (optionnel)</FormLabel>
-                      <FormControl>
-                        <Input type="text" placeholder="Écrivez ici" v-bind="componentField"/>
-                      </FormControl>
-                      <FormMessage/>
-                    </FormItem>
-                  </FormField>
-                  <Button class="mt-4" variant="custom" type="submit" @click="onSubmit">
-                    Enregistrer
-                  </Button>
-                </form>
-              </DialogContent>
-            </Dialog>
-          </div>
-        </div>
-        <div class="w-full">
-          <div class="flex gap-4">
-            <h2 class="text-2xl">Historique</h2>
+  <div class="flex-column-container">
+    <div class="flex justify-between items-center w-full gap-4">
+      <Button variant="custom" @click="$emit('close')"
+              class="flex gap-2 items-center cursor-pointer hover:opacity-80 transition-opacity">
+        <i class="material-symbols-outlined ">arrow_back</i>
+        <span>Revenir en arrière</span>
+      </Button>
+      <div class="form-modal">
+        <Dialog>
+          <DialogTrigger class="flex gap-2 items-center cursor-pointer hover:opacity-80 transition-opacity">
+            <Button variant="custom">
+              <span>Ajouter une activité</span>
+              <i class="material-symbols-outlined">add</i>
+            </Button>
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle class="text-2xl">Ajouter une activité physique</DialogTitle>
+            </DialogHeader>
+            <form class="mt-8 flex flex-col gap-6" @submit="onSubmit">
+              <FormField v-slot="{ componentField }" name="typeActivite">
+                <FormItem>
+                  <FormLabel>Type d'activité</FormLabel>
+                  <FormControl>
+                    <Input type="text" placeholder="Course à pied" v-bind="componentField" :autofocus="false"/>
+                  </FormControl>
+                  <FormMessage/>
+                </FormItem>
+              </FormField>
+              <div class="flex items-center gap-8">
+                <FormField v-slot="{ componentField }" name="date">
+                  <FormItem>
+                    <FormLabel>Date</FormLabel>
+                    <FormControl>
+                      <Input type="date" v-bind="componentField"/>
+                    </FormControl>
+                    <FormMessage/>
+                  </FormItem>
+                </FormField>
+                <FormField v-slot="{ componentField }" name="time">
+                  <FormItem>
+                    <FormLabel>Heure</FormLabel>
+                    <FormControl>
+                      <Input type="time" v-bind="componentField"/>
+                    </FormControl>
+                    <FormMessage/>
+                  </FormItem>
+                </FormField>
+              </div>
+              <div class="flex items-center gap-8">
+                <FormField v-slot="{ componentField }" name="duree">
+                  <FormItem>
+                    <FormLabel>Durée de l'activité</FormLabel>
+                    <FormControl>
+                      <Input type="number" placeholder="Durée en minutes" v-bind="componentField"/>
+                    </FormControl>
+                    <FormMessage/>
+                  </FormItem>
+                </FormField>
+                <FormField v-slot="{ componentField }" name="intensite">
+                  <FormItem>
+                    <FormLabel>Intensité de l'activité</FormLabel>
+                    <FormControl>
+                      <Input type="number" placeholder="1 à 10" min="1" v-bind="componentField"/>
+                    </FormControl>
+                    <FormMessage/>
+                  </FormItem>
+                </FormField>
+              </div>
+              <FormField v-slot="{ componentField }" name="effetDouleur">
+                <FormItem>
+                  <FormLabel>Effet sur la douleur (sur une échelle de 1 à 10)</FormLabel>
+                  <FormControl>
+                    <Input type="number" placeholder="1 à 10" v-bind="componentField"/>
+                  </FormControl>
+                  <FormMessage/>
+                </FormItem>
+              </FormField>
+              <FormField v-slot="{ componentField }" name="commentaire">
+                <FormItem>
+                  <FormLabel>Un commentaire ? (optionnel)</FormLabel>
+                  <FormControl>
+                    <Input type="text" placeholder="Écrivez ici" v-bind="componentField"/>
+                  </FormControl>
+                  <FormMessage/>
+                </FormItem>
+              </FormField>
+              <Button class="mt-4" variant="custom" type="submit" @click="onSubmit">
+                Enregistrer
+              </Button>
+            </form>
+          </DialogContent>
+        </Dialog>
+      </div>
+    </div>
+    <div class="flex-row-container w-full gap-8">
+      <section
+          class="flex flex-wrap h-full w-8/12 container py-8 px-4 bg-clearer rounded-3xl shadow-md ml-auto">
+        <div class="w-full flex flex-col justify-center items-center">
+          <div class="flex justify-center items-center gap-4">
+            <h2 class="text-2xl self-start flex gap-4">
+              <i class="material-symbols-outlined text-3xl">timeline</i>
+              Historique
+            </h2>
             <Select v-model="timePeriod">
               <SelectTrigger class="w-fit bg-white">
                 <SelectValue class="w-fit">{{
@@ -125,7 +129,8 @@
           />
         </div>
       </section>
-      <section class="flex flex-col h-auto items-center gap-8 w-4/12 container py-8 bg-clearer rounded-3xl shadow-md ml-auto">
+      <section
+          class="flex flex-col h-auto items-center gap-4 w-4/12 container py-8 bg-clearer rounded-3xl shadow-md ml-auto">
         <div class="flex gap-4">
           <h2 class="text-2xl self-start flex gap-4">
             <i class="material-symbols-outlined text-3xl">trending_up</i>
@@ -152,7 +157,7 @@
       </section>
     </div>
     <section v-if="entries.length > 0"
-             class="container !mt-0 mx-auto py-8 w-full bg-clearer rounded-3xl shadow-md ml-auto">
+             class="container !mt-0 mb-16 mx-auto py-8 w-full bg-clearer rounded-3xl shadow-md ml-auto">
       <Datatable :entries="entries" :columns="columns" :deleteFunction="deleteDonneesActivitePhysique">
         <thead>
         <tr>

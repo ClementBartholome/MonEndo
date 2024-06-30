@@ -11,7 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2f99945a-a041-4f08-a884-b638ca21b13c" name="Changes" comment="socle 0.1">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MonEndoVue/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MonEndoVue/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonEndoVue.Server/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/MonEndoVue.Server/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonEndoVue.Server/MonEndoVue.Server.http" beforeDir="false" afterPath="$PROJECT_DIR$/MonEndoVue.Server/MonEndoVue.Server.http" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +33,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -45,21 +45,18 @@
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/b8139c5ee58f1708b0e3368a1b241400edd6cbc4/src/Identity/Extensions.Core/src/UserManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/b8139c5ee58f1708b0e3368a1b241400edd6cbc4/src/Identity/Extensions.Stores/src/IdentityUser.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/3b8b000a0e115700b18265d8ec8c6307056dc94d/src/coreclr/System.Private.CoreLib/src/System/Threading/Monitor.CoreCLR.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/3b8b000a0e115700b18265d8ec8c6307056dc94d/src/libraries/System.Private.CoreLib/src/System/Runtime/ExceptionServices/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/3b8b000a0e115700b18265d8ec8c6307056dc94d/src/libraries/System.Text.Json/src/System/Text/Json/ThrowHelper.Serialization.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/5535e31a712343a63f5d7d796cd874e563e5ac14/src/libraries/Microsoft.Extensions.Configuration.Abstractions/src/ConfigurationExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/5535e31a712343a63f5d7d796cd874e563e5ac14/src/libraries/Microsoft.Extensions.Configuration/src/ConfigurationManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/379024c0d7b82f968b5dc237a7b9164f6a147f6af295eefb6a7eec9ff453eca/AuthorizationCodeFlow.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Clementoss/source/repos/MonEndoVue/MonEndoVue.Server/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Clementoss/source/repos/MonEndoVue/MonEndoVue.Server/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Clementoss/source/repos/MonEndoVue/MonEndoVue.Server/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Clementoss/source/repos/MonEndoVue/MonEndoVue.Server/appsettings.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MonEndoVue.Server/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MonEndoVue.Server/wwwroot/lib/jquery/dist/jquery.min.map" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/monendovue.client/package-lock.json" root0="SKIP_HIGHLIGHTING" />
   </component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="Toolset" />
@@ -78,7 +75,7 @@
     ".NET Launch Settings Profile.MonEndoVue.Server: IIS Express.executor": "Debug",
     ".NET Launch Settings Profile.MonEndoVue.Server: https.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "develop",
+    "git-widget-placeholder": "master",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -344,48 +341,30 @@
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/MonEndoVue.Server/Controllers/GoogleApiController.cs</url>
-          <line>43</line>
-          <properties documentPath="C:\Users\Clementoss\source\repos\MonEndoVue\MonEndoVue.Server\Controllers\GoogleApiController.cs" containingFunctionPresentation="Method 'Authenticate'">
+          <url>file://$PROJECT_DIR$/MonEndoVue.Server/Program.cs</url>
+          <line>23</line>
+          <properties documentPath="C:\Users\Clementoss\source\repos\MonEndoVue\MonEndoVue.Server\Program.cs" containingFunctionPresentation="Method 'Main'">
             <startOffsets>
-              <option value="1541" />
+              <option value="791" />
             </startOffsets>
             <endOffsets>
-              <option value="1542" />
+              <option value="792" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/MonEndoVue.Server/Controllers/GoogleApiController.cs</url>
-          <line>18</line>
-          <properties documentPath="C:\Users\Clementoss\source\repos\MonEndoVue\MonEndoVue.Server\Controllers\GoogleApiController.cs" containingFunctionPresentation="Method 'Authorize'">
-            <startOffsets>
-              <option value="624" />
-            </startOffsets>
-            <endOffsets>
-              <option value="625" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="23" />
+          <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/MonEndoVue.Server/Program.cs</url>
-          <line>20</line>
+          <line>28</line>
           <properties documentPath="C:\Users\Clementoss\source\repos\MonEndoVue\MonEndoVue.Server\Program.cs" containingFunctionPresentation="Method 'Main'">
             <startOffsets>
-              <option value="653" />
+              <option value="1014" />
             </startOffsets>
             <endOffsets>
-              <option value="810" />
+              <option value="1015" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/monendovue.client/src/services/googleApiService.ts</url>
-          <line>3</line>
-          <option name="timeStamp" value="22" />
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

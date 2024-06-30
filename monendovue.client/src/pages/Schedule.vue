@@ -1,5 +1,5 @@
 ﻿<template>
-  <section class="container">
+  <section class="container mt-16">
     <Button variant="custom" @click="refreshData" class="refresh-button mb-4">Actualiser les données</Button>
     <div v-if="loading">Chargement des données du calendrier...</div>
     <FullCalendar v-else :options="calendarOptions" />

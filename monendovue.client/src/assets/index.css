@@ -178,6 +178,7 @@
 
 html {
     font-size: 16px;
+    box-sizing: border-box;
 }
 
 @media (min-width: 768px) {
@@ -230,11 +231,11 @@ ul {
 }
 
 .container {
-    margin-top: 6rem;
-    
+        padding-right: 2rem;
+        padding-left: 2rem;
     @media (max-width: 1023px) {
-        padding: 1rem;
-        margin-top: 3rem;
+        padding-right: 1rem;
+        padding-left: 1rem;
     }
 }
 
@@ -251,9 +252,13 @@ ul {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 3rem;
+    gap: 2rem;
     max-width: 1400px;
-    margin: 0 auto;
+    margin: 3rem auto 0;
+    
+    @media (max-width: 1024px){
+        margin: 5rem 1rem 3rem 1rem;
+    }
 }
 
 .flex-row-container {
@@ -337,7 +342,6 @@ td, th {
     position: fixed;
     top: 0;
     left: 0;
-    height: 100%;
     width: 200px;
     overflow-y: auto;
     background-color: var(--background);

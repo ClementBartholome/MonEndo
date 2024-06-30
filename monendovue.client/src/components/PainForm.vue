@@ -1,86 +1,90 @@
 ﻿<template>
-  <div class="flex-column-container gap-12">
-    <div class="flex-row-container md:gap-12">
-      <section class="flex flex-wrap h-fit w-8/12 md:max-h-96 container py-8 bg-clearer rounded-3xl shadow-md ml-auto">
-        <div class="flex justify-between items-center w-full gap-4 mb-2 ">
-          <Button variant="custom" @click="$emit('close')"
-                  class="flex gap-2 items-center cursor-pointer hover:opacity-80 transition-opacity">
-            <i class="material-symbols-outlined ">arrow_back</i>
-            <span>Revenir en arrière</span>
-          </Button>
-          <div class="form-modal">
-            <Dialog>
-              <DialogTrigger class="flex gap-2 items-center cursor-pointer hover:opacity-80 transition-opacity">
-                <Button variant="custom">
-                  <span>Ajouter une douleur</span>
-                  <i class="material-symbols-outlined">add</i>
+  <div class="flex-column-container">
+    <div class="flex justify-between items-center w-full gap-4">
+      <Button variant="custom" @click="$emit('close')"
+              class="flex gap-2 items-center cursor-pointer hover:opacity-80 transition-opacity">
+        <i class="material-symbols-outlined ">arrow_back</i>
+        <span>Revenir en arrière</span>
+      </Button>
+      <div class="form-modal">
+        <Dialog>
+          <DialogTrigger class="flex gap-2 items-center cursor-pointer hover:opacity-80 transition-opacity">
+            <Button variant="custom">
+              <span>Ajouter une activité</span>
+              <i class="material-symbols-outlined">add</i>
+            </Button>
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle class="text-2xl">Ajouter une douleur</DialogTitle>
+            </DialogHeader>
+            <form class="mt-8 flex flex-col gap-6" @submit="onSubmit">
+              <FormField v-slot="{ componentField }" name="typeDouleur">
+                <FormItem>
+                  <FormLabel>Type de douleur</FormLabel>
+                  <FormControl>
+                    <Input type="text" placeholder="Douleur pelvienne" v-bind="componentField"/>
+                  </FormControl>
+                  <FormMessage/>
+                </FormItem>
+              </FormField>
+              <div class="flex items-center gap-8">
+                <FormField v-slot="{ componentField }" name="date">
+                  <FormItem>
+                    <FormLabel>Date</FormLabel>
+                    <FormControl>
+                      <Input type="date" v-bind="componentField"/>
+                    </FormControl>
+                    <FormMessage/>
+                  </FormItem>
+                </FormField>
+                <FormField v-slot="{ componentField }" name="time">
+                  <FormItem>
+                    <FormLabel>Heure</FormLabel>
+                    <FormControl>
+                      <Input type="time" v-bind="componentField"/>
+                    </FormControl>
+                    <FormMessage/>
+                  </FormItem>
+                </FormField>
+              </div>
+              <FormField v-slot="{ componentField }" name="intensite">
+                <FormItem>
+                  <FormLabel>Intensité</FormLabel>
+                  <FormControl>
+                    <Slider v-bind="componentField" :default-value="[5]" :max="10" :min="1" :step="1"/>
+                  </FormControl>
+                  <FormMessage/>
+                </FormItem>
+              </FormField>
+              <FormField v-slot="{ componentField }" name="commentaire">
+                <FormItem>
+                  <FormLabel>Un commentaire ? <span class="">(optionnel)</span></FormLabel>
+                  <FormControl>
+                    <Input type="text" placeholder="Écrivez ici" v-bind="componentField"/>
+                  </FormControl>
+                  <FormMessage/>
+                </FormItem>
+              </FormField>
+              <DialogFooter>
+                <Button class="mt-4" variant="custom" type="submit" @click="onSubmit">
+                  Enregistrer
                 </Button>
-              </DialogTrigger>
-              <DialogContent>
-                <DialogHeader>
-                  <DialogTitle class="text-2xl">Ajouter une douleur</DialogTitle>
-                </DialogHeader>
-                <form class="mt-8 flex flex-col gap-6" @submit="onSubmit">
-                  <FormField v-slot="{ componentField }" name="typeDouleur">
-                    <FormItem>
-                      <FormLabel>Type de douleur</FormLabel>
-                      <FormControl>
-                        <Input type="text" placeholder="Douleur pelvienne" v-bind="componentField"/>
-                      </FormControl>
-                      <FormMessage/>
-                    </FormItem>
-                  </FormField>
-                  <div class="flex items-center gap-8">
-                    <FormField v-slot="{ componentField }" name="date">
-                      <FormItem>
-                        <FormLabel>Date</FormLabel>
-                        <FormControl>
-                          <Input type="date" v-bind="componentField"/>
-                        </FormControl>
-                        <FormMessage/>
-                      </FormItem>
-                    </FormField>
-                    <FormField v-slot="{ componentField }" name="time">
-                      <FormItem>
-                        <FormLabel>Heure</FormLabel>
-                        <FormControl>
-                          <Input type="time" v-bind="componentField"/>
-                        </FormControl>
-                        <FormMessage/>
-                      </FormItem>
-                    </FormField>
-                  </div>
-                  <FormField v-slot="{ componentField }" name="intensite">
-                    <FormItem>
-                      <FormLabel>Intensité</FormLabel>
-                      <FormControl>
-                        <Slider v-bind="componentField" :default-value="[5]" :max="10" :min="1" :step="1"/>
-                      </FormControl>
-                      <FormMessage/>
-                    </FormItem>
-                  </FormField>
-                  <FormField v-slot="{ componentField }" name="commentaire">
-                    <FormItem>
-                      <FormLabel>Un commentaire ? <span class="">(optionnel)</span></FormLabel>
-                      <FormControl>
-                        <Input type="text" placeholder="Écrivez ici" v-bind="componentField"/>
-                      </FormControl>
-                      <FormMessage/>
-                    </FormItem>
-                  </FormField>
-                  <DialogFooter>
-                    <Button class="mt-4" variant="custom" type="submit" @click="onSubmit">
-                      Enregistrer
-                    </Button>
-                  </DialogFooter>
-                </form>
-              </DialogContent>
-            </Dialog>
-          </div>
-        </div>
-        <div class="w-full">
-          <div class="flex gap-4">
-            <h2 class="text-2xl">Historique</h2>
+              </DialogFooter>
+            </form>
+          </DialogContent>
+        </Dialog>
+      </div>
+    </div>
+    <div class="flex-row-container w-full gap-8">
+      <section
+          class="flex flex-wrap h-full w-8/12 container py-8 px-4 bg-clearer rounded-3xl shadow-md ml-auto">
+        <div class="w-full flex flex-col justify-center items-center">
+          <div class="flex justify-center items-center gap-4">
+            <h2 class="text-2xl self-start flex gap-4">
+              <i class="material-symbols-outlined text-3xl">timeline</i>
+              Historique
+            </h2>
             <Select v-model="timePeriod">
               <SelectTrigger class="w-fit bg-white">
                 <SelectValue class="w-fit">{{
@@ -107,26 +111,27 @@
           />
         </div>
       </section>
-      <section class="flex flex-col h-auto items-center gap-8 w-4/12 container py-8 bg-clearer rounded-3xl shadow-md ml-auto">
+      <section
+          class="flex flex-col h-auto items-center gap-8 w-4/12 container py-8 bg-clearer rounded-3xl shadow-md ml-auto">
         <div class="flex gap-4">
           <h2 class="text-2xl self-start flex gap-4">
             <i class="material-symbols-outlined text-3xl">trending_up</i>
             Tendances
           </h2>
-        <Select v-model="averageIntensityPeriod"> <!-- Step 2 -->
-          <SelectTrigger class="w-fit bg-white">
-            <SelectValue class="w-fit">{{
-                averageIntensityPeriod === 'week' ? '7 derniers jours' : '30 derniers jours'
-              }}
-            </SelectValue>
-          </SelectTrigger>
-          <SelectContent>
-            <SelectGroup>
-              <SelectItem value="week">7 derniers jours</SelectItem>
-              <SelectItem value="month">30 derniers jours</SelectItem>
-            </SelectGroup>
-          </SelectContent>
-        </Select>
+          <Select v-model="averageIntensityPeriod"> <!-- Step 2 -->
+            <SelectTrigger class="w-fit bg-white">
+              <SelectValue class="w-fit">{{
+                  averageIntensityPeriod === 'week' ? '7 derniers jours' : '30 derniers jours'
+                }}
+              </SelectValue>
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectItem value="week">7 derniers jours</SelectItem>
+                <SelectItem value="month">30 derniers jours</SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
         </div>
         <p>Moyenne d'intensité des douleurs</p>
         <span class="text-5xl text-highlight">{{ averageIntensity }}</span>
@@ -134,7 +139,7 @@
       </section>
     </div>
     <section v-if="entries.length > 0"
-             class="container !mt-0 mx-auto py-8 w-full bg-clearer rounded-3xl shadow-md ml-auto">
+             class="container !mt-0 mb-16 mx-auto py-8 w-full bg-clearer rounded-3xl shadow-md ml-auto">
       <Datatable :entries="entries" :columns="columns" :deleteFunction="deleteDonneesDouleurs">
         <thead>
         <tr>
@@ -191,7 +196,6 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog'
 import Datatable from "@/components/Datatable.vue";
-
 
 
 import {parse} from 'date-fns';

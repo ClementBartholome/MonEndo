@@ -1,8 +1,8 @@
 ﻿<template>
-  <section class="flex flex-wrap h-auto container mx-auto py-8 bg-clearer rounded-3xl shadow-md ml-auto">
-    <div class="w-full">
-      <div class="flex gap-8">
-        <h1 class="text-3xl font-bold md:mb-8">Aujourd'hui - {{ formatDate(value || new Date()) }}</h1>
+  <section class="flex flex-wrap h-auto container mx-auto mt-16 py-8 bg-clearer rounded-3xl shadow-md ml-auto">
+    <div class="w-full mb-8">
+      <div class="flex gap-8 responsive-layout">
+        <h1 class="text-3xl font-bold md:mb-4">Aujourd'hui - {{ formatDate(value || new Date()) }}</h1>
         <!--        <Popover>-->
         <!--          <div class="relative">-->
         <!--            <PopoverTrigger as-child>-->
@@ -47,14 +47,24 @@
         </Card>
         <Card>
           <CardHeader>
-            <i class="material-symbols-outlined" style="font-size: 48px;">menstrual_health</i>
-            <CardTitle>Cycle menstruel</CardTitle>
+            <i class="material-symbols-outlined" style="font-size: 48px;">medical_services</i>
+            <CardTitle>Médicaments</CardTitle>
             <i class="material-symbols-outlined ml-auto">analytics</i>
           </CardHeader>
           <CardContent>
-            Règles dans <span class="highlight">3 jours</span>
+            <p>Prise de médicaments à <span class="highlight">10h</span></p>
           </CardContent>
         </Card>
+<!--        <Card>-->
+<!--          <CardHeader>-->
+<!--            <i class="material-symbols-outlined" style="font-size: 48px;">menstrual_health</i>-->
+<!--            <CardTitle>Cycle menstruel</CardTitle>-->
+<!--            <i class="material-symbols-outlined ml-auto">analytics</i>-->
+<!--          </CardHeader>-->
+<!--          <CardContent>-->
+<!--            Règles dans <span class="highlight">3 jours</span>-->
+<!--          </CardContent>-->
+<!--        </Card>-->
         <Card class="w-full col-span-3">
           <CardHeader>
             <i class="material-symbols-outlined" style="font-size: 48px;">event</i>

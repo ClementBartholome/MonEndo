@@ -31,7 +31,7 @@ const handleLogout = async () => {
 
 <template>
   <header>
-    <nav class="navbar-side flex items-center justify-between border-b shadow-lg mb-3">
+    <nav class="navbar-side md:h-full flex items-center justify-between border-b shadow-lg mb-3">
       <a href="#">
         <img class="logo" src="../images/MonEndo_transparent.png" alt="">
       </a>
@@ -53,12 +53,12 @@ const handleLogout = async () => {
       </div>
     </nav>
 
-    <div class="user-navbar flex items-center justify-end fixed top-0 right-0 my-6 mx-12 gap-4">
-      <a href="#" class="flex items-center text-dark">
-        <span class="material-symbols-outlined">notifications</span>
-      </a>
-      <span class="material-symbols-outlined">account_circle</span>
-      <div class="relative inline-block text-left">
+    <div class="user-navbar flex items-center justify-end absolute top-0 right-0 py-5 mx-8 gap-4">
+<!--      <a href="#" class="flex items-center text-dark">-->
+<!--        <span class="material-symbols-outlined">notifications</span>-->
+<!--      </a>-->
+<!--      <span class="material-symbols-outlined">account_circle</span>-->
+      <div class="relative flex justify-center text-left">
         <span>{{ user?.email }}</span>
         <DropdownMenu>
           <DropdownMenuTrigger>
