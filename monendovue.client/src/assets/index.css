@@ -312,6 +312,12 @@ td, th {
     max-width: 200px !important;
 }
 
+.fc-header-toolbar {
+    @media(max-width: 768px) {
+        flex-direction: column !important;
+    }
+}
+
 
 /* Classes réutilisables */
 
@@ -406,7 +412,7 @@ td, th {
         height: auto;
         width: 100%;
         justify-content: center;
-        z-index: 9999;
+        z-index: 40;
         box-shadow: 0 -2px 4px 0 rgba(0, 0, 0, 0.10);
         background-color: var(--background-clearer);
         margin-bottom: 0;

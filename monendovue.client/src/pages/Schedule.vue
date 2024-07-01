@@ -27,6 +27,7 @@ import {type Ref, ref, onMounted, onUnmounted, computed, watch} from 'vue'
 import FullCalendar from '@fullcalendar/vue3'
 import googleCalendarPlugin from '@fullcalendar/google-calendar';
 import dayGridMonth from "@fullcalendar/daygrid";
+import dayGridWeek from "@fullcalendar/daygrid";
 import frLocale from '@fullcalendar/core/locales/fr';
 import interactionPlugin from "@fullcalendar/interaction";
 import 'vue-popperjs/dist/vue-popper.css';
@@ -93,28 +94,64 @@ const refreshData = async () => {
   loading.value = false;
 };
 
-let calendarOptions = computed(() => ({
-  plugins: [googleCalendarPlugin, dayGridMonth, interactionPlugin],
-  initialView: 'dayGridMonth',
-  googleCalendarApiKey: 'AIzaSyBUZn9KlA-tPkkaplM0m8B-OhznnXviTc4',
-  events: events.value,
-  height: 850,
-  locale: frLocale,
-  dateClick: function(info) {
-    selectedDate.value = info.dateStr;
-    popperPosition.value = {
-      x: info.jsEvent.clientX,
-      y: info.jsEvent.clientY
-    };
-    console.log(popperPosition.value)
-    console.log(info)
-  },
-}))
+let calendarOptions = computed(() => {
+  const isMobile = window.matchMedia('(max-width: 767px)').matches;
+  const initialView = isMobile ? 'dayGridFourWeek' : 'dayGridMonth';
+
+  return {
+    plugins: [googleCalendarPlugin, dayGridMonth, interactionPlugin, dayGridWeek],
+    initialView: initialView,
+    views: {
+      dayGridFourWeek: {
+        type: 'dayGridWeek',
+        duration: { days: 4 }
+      }
+    },
+    headerToolbar: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'dayGridMonth,dayGridFourWeek'
+    },
+    buttonText: {
+      dayGridFourWeek: 'semaine'
+    },
+    googleCalendarApiKey: 'AIzaSyBUZn9KlA-tPkkaplM0m8B-OhznnXviTc4',
+    events: events.value,
+    height: 850,
+    locale: frLocale,
+    dateClick: function(info) {
+      selectedDate.value = info.dateStr;
+      popperPosition.value = {
+        x: info.jsEvent.clientX,
+        y: info.jsEvent.clientY
+      };
+      console.log(popperPosition.value)
+      console.log(info)
+    },
+  }
+})
 
 watch(events, () => {
+  const isMobile = window.matchMedia('(max-width: 767px)').matches;
+  const initialView = isMobile ? 'dayGridFourWeek' : 'dayGridMonth';
+  
   calendarOptions = computed(() => ({
-    plugins: [googleCalendarPlugin, dayGridMonth, interactionPlugin],
-    initialView: 'dayGridMonth',
+    plugins: [googleCalendarPlugin, dayGridMonth, interactionPlugin, dayGridWeek],
+    initialView: initialView,
+    views: {
+      dayGridFourWeek: {
+        type: 'dayGridWeek',
+        duration: { days: 4 }
+      }
+    },
+    headerToolbar: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'dayGridMonth,dayGridFourWeek'
+    },
+    buttonText: {
+      dayGridFourWeek: 'semaine'
+    },
     googleCalendarApiKey: 'AIzaSyBUZn9KlA-tPkkaplM0m8B-OhznnXviTc4',
     events: events.value,
     height: 850,

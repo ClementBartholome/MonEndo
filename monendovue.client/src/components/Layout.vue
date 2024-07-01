@@ -65,13 +65,13 @@ const handleLogout = async () => {
             <span class="material-symbols-outlined">arrow_drop_down</span>
           </DropdownMenuTrigger>
           <DropdownMenuContent>
-            <DropdownMenuItem>
-              <a href="#">Profil</a>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <a href="#">Paramètres</a>
-            </DropdownMenuItem>
-            <DropdownMenuSeparator/>
+<!--            <DropdownMenuItem>-->
+<!--              <a href="#">Profil</a>-->
+<!--            </DropdownMenuItem>-->
+<!--            <DropdownMenuItem>-->
+<!--              <a href="#">Paramètres</a>-->
+<!--            </DropdownMenuItem>-->
+<!--            <DropdownMenuSeparator/>-->
             <DropdownMenuItem>
               <button @click="handleLogout">Déconnexion</button>
             </DropdownMenuItem>

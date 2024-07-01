@@ -10,13 +10,13 @@
         <Dialog>
           <DialogTrigger class="flex gap-2 items-center cursor-pointer hover:opacity-80 transition-opacity">
             <Button variant="custom">
-              <span>Ajouter une activité</span>
+              <span>Ajouter une session</span>
               <i class="material-symbols-outlined">add</i>
             </Button>
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
-              <DialogTitle class="text-2xl">Ajouter une activité physique</DialogTitle>
+              <DialogTitle class="text-2xl">Ajouter une session</DialogTitle>
             </DialogHeader>
             <form class="mt-8 flex flex-col gap-6" @submit="onSubmit">
               <FormField v-slot="{ componentField }" name="typeActivite">
@@ -48,31 +48,29 @@
                   </FormItem>
                 </FormField>
               </div>
-              <div class="flex items-center gap-8">
-                <FormField v-slot="{ componentField }" name="duree">
-                  <FormItem>
-                    <FormLabel>Durée de l'activité</FormLabel>
-                    <FormControl>
-                      <Input type="number" placeholder="Durée en minutes" v-bind="componentField"/>
-                    </FormControl>
-                    <FormMessage/>
-                  </FormItem>
-                </FormField>
-                <FormField v-slot="{ componentField }" name="intensite">
-                  <FormItem>
-                    <FormLabel>Intensité de l'activité</FormLabel>
-                    <FormControl>
-                      <Input type="number" placeholder="1 à 10" min="1" v-bind="componentField"/>
-                    </FormControl>
-                    <FormMessage/>
-                  </FormItem>
-                </FormField>
-              </div>
+              <FormField v-slot="{ componentField }" name="duree">
+                <FormItem>
+                  <FormLabel>Durée de l'activité</FormLabel>
+                  <FormControl>
+                    <Input type="number" placeholder="Durée en minutes" v-bind="componentField"/>
+                  </FormControl>
+                  <FormMessage/>
+                </FormItem>
+              </FormField>
+              <FormField v-slot="{ componentField }" name="intensite">
+                <FormItem>
+                  <FormLabel>Intensité</FormLabel>
+                  <FormControl>
+                    <Slider v-bind="componentField" :default-value="[5]" :max="10" :min="1" :step="1"/>
+                  </FormControl>
+                  <FormMessage/>
+                </FormItem>
+              </FormField>
               <FormField v-slot="{ componentField }" name="effetDouleur">
                 <FormItem>
-                  <FormLabel>Effet sur la douleur (sur une échelle de 1 à 10)</FormLabel>
+                  <FormLabel>Effet sur la douleur</FormLabel>
                   <FormControl>
-                    <Input type="number" placeholder="1 à 10" v-bind="componentField"/>
+                    <Slider v-bind="componentField" :default-value="[5]" :max="10" :min="1" :step="1"/>
                   </FormControl>
                   <FormMessage/>
                 </FormItem>
@@ -151,9 +149,9 @@
             </SelectContent>
           </Select>
         </div>
-        <p>Moyenne d'intensité de l'activité physique</p>
-        <span class="text-5xl text-highlight">{{ averageIntensity }}</span>
-        <i class="material-symbols-outlined text-7xl text-button">{{ intensityIcon }}</i>
+        <p>Durée totale ({{filteredEntriesForTendances.length}} entrées)</p>
+        <span class="text-5xl text-highlight">{{ totalSessionDuration }}</span>
+<!--        <i class="material-symbols-outlined text-7xl text-button">test</i>-->
       </section>
     </div>
     <section v-if="entries.length > 0"
@@ -194,6 +192,7 @@ import {useAuthStore} from '@/store/auth';
 import {format} from 'date-fns';
 import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger,} from '@/components/ui/dialog'
 import {parse} from 'date-fns';
+import {Slider} from "@/components/ui/slider";
 
 const authStore = useAuthStore();
 
@@ -257,18 +256,22 @@ const formSchema = toTypedSchema(z.object({
   duree: z.number({
     required_error: 'La durée de l\'activité est requise',
   }),
-  intensite: z.number({
-    required_error: 'L\'intensité de l\'activité est requise',
-  }),
-  effetDouleur: z.number({
+  intensite: z.array(z.number({
+    required_error: 'L\'intensité est requise',
+  })),
+  effetDouleur: z.array(z.number({
     required_error: 'L\'effet sur la douleur est requis',
-  }),
+  })),
   commentaire: z.string().optional(),
 }))
 
 const form = useForm({
   validationSchema: formSchema,
-})
+  initialValues: {
+    intensite: [5],
+    effetDouleur: [5],
+  }
+});
 
 const onSubmit = form.handleSubmit((values) => {
   const dateTimeString = `${values.date}T${values.time}`;
@@ -278,6 +281,8 @@ const onSubmit = form.handleSubmit((values) => {
 
   const valuesWithCarnetSanteId = {
     ...values,
+    intensite: values.intensite[0],
+    effetDouleur: values.effetDouleur[0],
     date: utcDateTime,
     commentaire: values.commentaire ? values.commentaire : 'Pas de commentaire',
     carnetSanteId: authStore.user?.carnetSanteId,
@@ -286,7 +291,9 @@ const onSubmit = form.handleSubmit((values) => {
 
   const valuesForView = {
     ...valuesWithCarnetSanteId, date: format(values.date, 'dd/MM/yyyy'),
-    time: values.time.replace(":", "h")
+    time: values.time.replace(":", "h"),
+    intensite: values.intensite[0],
+    effetDouleur: values.effetDouleur[0],
   };
   console.log(valuesForView)
   delete valuesForView.carnetSanteId;
@@ -327,48 +334,76 @@ const filteredEntriesForChart = computed(() => {
 
 let averageIntensityPeriod = ref('week');
 
-const averageIntensity = computed(() => {
+const filteredEntriesForTendances = computed(() => {
   const now = new Date();
   now.setHours(0, 0, 0, 0);
   let startDate;
 
-  if (averageIntensityPeriod.value === 'week') { // Step 3
+  if (averageIntensityPeriod.value === 'week') {
     startDate = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 7);
-  } else if (averageIntensityPeriod.value === 'month') { // Step 3
+  } else if (averageIntensityPeriod.value === 'month') {
     startDate = new Date(now.getFullYear(), now.getMonth() - 1, now.getDate());
   } else {
     startDate = new Date(0);
   }
   startDate.setHours(0, 0, 0, 0);
 
-  const lastWeekEntries = entries.value.filter(entry => {
+  return entries.value.filter(entry => {
     const entryDate = parse(entry.date, 'dd/MM/yyyy', new Date());
     entryDate.setHours(0, 0, 0, 0);
     return entryDate.getTime() >= startDate.getTime();
   });
-
-  if (lastWeekEntries.length === 0) {
-    return 'N/A';
-  }
-
-  const totalIntensity = lastWeekEntries.reduce((total, entry) => total + Number(entry.intensite), 0);
-  return (totalIntensity / lastWeekEntries.length).toFixed(2);
 });
 
-const intensityIcon = computed(() => {
-  const avgIntensity = Number(averageIntensity.value);
-  if (avgIntensity >= 0 && avgIntensity < 2) {
-    return 'sentiment_very_satisfied';
-  } else if (avgIntensity >= 2 && avgIntensity < 4) {
-    return 'sentiment_satisfied';
-  } else if (avgIntensity >= 4 && avgIntensity < 6) {
-    return 'sentiment_neutral';
-  } else if (avgIntensity >= 6 && avgIntensity < 8) {
-    return 'sentiment_dissatisfied';
-  } else if (avgIntensity >= 8 && avgIntensity <= 10) {
-    return 'sentiment_very_dissatisfied';
-  } else {
-    return '';
-  }
+const totalSessionDuration = computed(() => {
+  const totalMinutes = filteredEntriesForTendances.value.reduce((total, entry) => total + Number(entry.duree.replace('min', '')), 0);
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = totalMinutes % 60;
+  return `${hours}h${minutes.toString().padStart(2, '0')}`;
 });
+
+// const averageIntensity = computed(() => {
+//   const now = new Date();
+//   now.setHours(0, 0, 0, 0);
+//   let startDate;
+//
+//   if (averageIntensityPeriod.value === 'week') { // Step 3
+//     startDate = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 7);
+//   } else if (averageIntensityPeriod.value === 'month') { // Step 3
+//     startDate = new Date(now.getFullYear(), now.getMonth() - 1, now.getDate());
+//   } else {
+//     startDate = new Date(0);
+//   }
+//   startDate.setHours(0, 0, 0, 0);
+//
+//   const lastWeekEntries = entries.value.filter(entry => {
+//     const entryDate = parse(entry.date, 'dd/MM/yyyy', new Date());
+//     entryDate.setHours(0, 0, 0, 0);
+//     return entryDate.getTime() >= startDate.getTime();
+//   });
+//
+//   if (lastWeekEntries.length === 0) {
+//     return 'N/A';
+//   }
+//
+//   const totalIntensity = lastWeekEntries.reduce((total, entry) => total + Number(entry.intensite), 0);
+//   return (totalIntensity / lastWeekEntries.length).toFixed(2);
+// });
+//
+// const intensityIcon = computed(() => {
+//   const avgIntensity = Number(averageIntensity.value);
+//   if (avgIntensity >= 0 && avgIntensity < 2) {
+//     return 'sentiment_very_satisfied';
+//   } else if (avgIntensity >= 2 && avgIntensity < 4) {
+//     return 'sentiment_satisfied';
+//   } else if (avgIntensity >= 4 && avgIntensity < 6) {
+//     return 'sentiment_neutral';
+//   } else if (avgIntensity >= 6 && avgIntensity < 8) {
+//     return 'sentiment_dissatisfied';
+//   } else if (avgIntensity >= 8 && avgIntensity <= 10) {
+//     return 'sentiment_very_dissatisfied';
+//   } else {
+//     return '';
+//   }
+// });
 </script>

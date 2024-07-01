@@ -10,7 +10,7 @@
         <Dialog>
           <DialogTrigger class="flex gap-2 items-center cursor-pointer hover:opacity-80 transition-opacity">
             <Button variant="custom">
-              <span>Ajouter une activité</span>
+              <span>Ajouter une douleur</span>
               <i class="material-symbols-outlined">add</i>
             </Button>
           </DialogTrigger>
@@ -112,7 +112,7 @@
         </div>
       </section>
       <section
-          class="flex flex-col h-auto items-center gap-8 w-4/12 container py-8 bg-clearer rounded-3xl shadow-md ml-auto">
+          class="flex flex-col h-auto items-center gap-4 w-4/12 container py-8 bg-clearer rounded-3xl shadow-md ml-auto">
         <div class="flex gap-4">
           <h2 class="text-2xl self-start flex gap-4">
             <i class="material-symbols-outlined text-3xl">trending_up</i>
@@ -133,7 +133,7 @@
             </SelectContent>
           </Select>
         </div>
-        <p>Moyenne d'intensité des douleurs</p>
+        <p>Moyenne d'intensité des douleurs ({{filteredIntensityEntries.length}} entrées)</p>
         <span class="text-5xl text-highlight">{{ averageIntensity }}</span>
         <i class="material-symbols-outlined text-7xl text-button">{{ intensityIcon }}</i>
       </section>
@@ -327,32 +327,34 @@ const filteredEntriesForChart = computed(() => {
 
 let averageIntensityPeriod = ref('week');
 
-const averageIntensity = computed(() => {
+const filteredIntensityEntries = computed(() => {
   const now = new Date();
   now.setHours(0, 0, 0, 0);
   let startDate;
 
-  if (averageIntensityPeriod.value === 'week') { // Step 3
+  if (averageIntensityPeriod.value === 'week') {
     startDate = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 7);
-  } else if (averageIntensityPeriod.value === 'month') { // Step 3
+  } else if (averageIntensityPeriod.value === 'month') {
     startDate = new Date(now.getFullYear(), now.getMonth() - 1, now.getDate());
   } else {
     startDate = new Date(0);
   }
   startDate.setHours(0, 0, 0, 0);
 
-  const lastWeekEntries = entries.value.filter(entry => {
+  return entries.value.filter(entry => {
     const entryDate = parse(entry.date, 'dd/MM/yyyy', new Date());
     entryDate.setHours(0, 0, 0, 0);
     return entryDate.getTime() >= startDate.getTime();
   });
+});
 
-  if (lastWeekEntries.length === 0) {
+const averageIntensity = computed(() => {
+  if (filteredIntensityEntries.value.length === 0) {
     return 'N/A';
   }
 
-  const totalIntensity = lastWeekEntries.reduce((total, entry) => total + Number(entry.intensite), 0);
-  return (totalIntensity / lastWeekEntries.length).toFixed(2);
+  const totalIntensity = filteredIntensityEntries.value.reduce((total, entry) => total + Number(entry.intensite), 0);
+  return (totalIntensity / filteredIntensityEntries.value.length).toFixed(2);
 });
 
 const intensityIcon = computed(() => {

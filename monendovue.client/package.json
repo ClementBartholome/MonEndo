@@ -17,6 +17,7 @@
     "@fullcalendar/core": "^6.1.14",
     "@fullcalendar/daygrid": "^6.1.14",
     "@fullcalendar/google-calendar": "^6.1.14",
+    "@fullcalendar/timegrid": "^6.1.14",
     "@fullcalendar/vue3": "^6.1.14",
     "@radix-icons/vue": "^1.0.0",
     "@unovis/ts": "^1.4.1",
