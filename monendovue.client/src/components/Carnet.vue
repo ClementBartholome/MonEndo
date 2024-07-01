@@ -144,7 +144,7 @@ const isLoading = ref(true);
 const userId = 'd3cb0c2c-d405-4bc7-91a3-2022440d5267'
 
 onMounted(async () => {
-  donneesCarnetSante.value = await apiService.getDonneesCarnetSante(carnetSanteId);
+  donneesCarnetSante.value = await apiService.getLastDonneesCarnetSante(carnetSanteId);
   isLoading.value = false;
   const urlParams = new URLSearchParams(window.location.search);
   let accessToken: any = urlParams.get('accessToken');
@@ -264,9 +264,8 @@ const upcomingEvents = ref<Event[]>([]);
 // });
 
 const lastDouleurEntry = computed(() => {
-  if (donneesCarnetSante.value && donneesCarnetSante.value.donneesDouleur && donneesCarnetSante.value.donneesDouleur.$values.length > 0) {
-    if (donneesCarnetSante.value.donneesDouleur.$values.length === 0) return null;
-    const lastEntry = donneesCarnetSante.value.donneesDouleur.$values.slice(-1)[0];
+  if (donneesCarnetSante.value && donneesCarnetSante.value.DonneesDouleur) {
+    const lastEntry = donneesCarnetSante.value.DonneesDouleur;
     const date = new Date(lastEntry.date);
     const hours = date.getHours().toString().padStart(2, '0');
     const minutes = date.getMinutes().toString().padStart(2, '0');
@@ -280,8 +279,8 @@ const lastDouleurEntry = computed(() => {
 });
 
 const lastActiviteEntry = computed(() => {
-  if (donneesCarnetSante.value && donneesCarnetSante.value.donneesActivitePhysique.$values.length > 0) {
-    const lastEntry = donneesCarnetSante.value.donneesActivitePhysique.$values.slice(-1)[0];
+  if (donneesCarnetSante.value && donneesCarnetSante.value.DonneesActivitePhysique) {
+    const lastEntry = donneesCarnetSante.value.DonneesActivitePhysique;
     const date = new Date(lastEntry.date);
     const hours = date.getHours().toString().padStart(2, '0');
     const minutes = date.getMinutes().toString().padStart(2, '0');

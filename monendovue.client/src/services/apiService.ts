@@ -17,6 +17,21 @@ const apiService = {
             return null;
         }
     },
+
+    async getLastDonneesCarnetSante(carnetSanteId: number) {
+        try {
+            const response = await axios.get(`${API_URL}CarnetSante/lastentries/${carnetSanteId}`);
+
+            if (response.status === 200) {
+                return response.data;
+            } else {
+                throw new Error('Get failed');
+            }
+        } catch (error: any) {
+            console.error(error);
+            return null;
+        }
+    },
     
     async postDonneesDouleurs(donneesDouleurs: any) {
         try {

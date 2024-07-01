@@ -27,7 +27,7 @@ public class CarnetSanteService
         return carnetSante;
     }
     
-    public async Task<CarnetHomepageViewModel> GetCarnetSanteByUsername(string username)
+    public async Task<CarnetViewModel> GetCarnetSanteByUsername(string username)
     {
         var carnetSante = await _context.CarnetSantes
             .Include(c => c.User)
@@ -40,7 +40,7 @@ public class CarnetSanteService
             throw new Exception("Carnet de santé introuvable");
         }
         
-        return new CarnetHomepageViewModel
+        return new CarnetViewModel
         {
             UserName = carnetSante.User?.UserName,
             CarnetSanteId = carnetSante.Id,
@@ -49,7 +49,7 @@ public class CarnetSanteService
         };
     }
 
-    public async Task<CarnetHomepageViewModel> GetCarnetSanteById(int carnetSanteId)
+    public async Task<CarnetViewModel> GetCarnetSanteById(int carnetSanteId)
     {
         var carnetSante = await _context.CarnetSantes
             .Include(c => c.User)
@@ -62,12 +62,45 @@ public class CarnetSanteService
             throw new Exception("Carnet de santé introuvable");
         }
     
-        return new CarnetHomepageViewModel
+        return new CarnetViewModel
         {
             UserName = carnetSante.User?.UserName,
             CarnetSanteId = carnetSante.Id,
             DonneesDouleur = carnetSante.DonneesDouleurs,
             DonneesActivitePhysique = carnetSante.DonneesActivitePhysique
+        };
+    }
+
+
+    public async Task<CarnetHomepageViewModel> GetLastEntries(int carnetSanteId)
+    {
+        var carnetSante = await _context.CarnetSantes
+            .Include(c => c.User)
+            .Include(c => c.DonneesDouleurs.OrderBy(d => d.Date))
+            .Include(c => c.DonneesActivitePhysique.OrderBy(d => d.Date))
+            .FirstOrDefaultAsync(c => c.Id == carnetSanteId);
+    
+        if (carnetSante == null)
+        {
+            throw new Exception("Carnet de santé introuvable");
+        }
+        
+        var derniereDonneesDouleur = await _context.DonneesDouleurs
+            .Where(d => d.CarnetSanteId == carnetSanteId)
+            .OrderByDescending(d => d.Date)
+            .FirstOrDefaultAsync();
+
+        var derniereDonneesActivitePhysique = await _context.DonneesActivitePhysique
+            .Where(d => d.CarnetSanteId == carnetSanteId)
+            .OrderByDescending(d => d.Date)
+            .FirstOrDefaultAsync();
+    
+        return new CarnetHomepageViewModel
+        {
+            UserName = carnetSante.User?.UserName,
+            CarnetSanteId = carnetSante.Id,
+            DonneesDouleur = derniereDonneesDouleur,
+            DonneesActivitePhysique = derniereDonneesActivitePhysique
         };
     }
 }

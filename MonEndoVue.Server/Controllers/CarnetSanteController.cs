@@ -102,15 +102,21 @@ namespace MonEndoVue.Server.Controllers
         }
 
         [HttpGet("user/name/{username}")]
-        public async Task<CarnetHomepageViewModel> GetCarnetSanteByUsername(string username)
+        public async Task<CarnetViewModel> GetCarnetSanteByUsername(string username)
         {
             return await _carnetSanteService.GetCarnetSanteByUsername(username);
         }
 
         [HttpGet("{carnetSanteId}")]
-        public async Task<CarnetHomepageViewModel> GetCarnetSanteById(int carnetSanteId)
+        public async Task<CarnetViewModel> GetCarnetSanteById(int carnetSanteId)
         {
             return await _carnetSanteService.GetCarnetSanteById(carnetSanteId);
+        }
+        
+        [HttpGet("lastentries/{carnetSanteId}")]
+        public async Task<CarnetHomepageViewModel> GetLastEntries(int carnetSanteId)
+        {
+            return await _carnetSanteService.GetLastEntries(carnetSanteId);
         }
     }
 }
