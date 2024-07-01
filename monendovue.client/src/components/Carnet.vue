@@ -145,6 +145,7 @@ const userId = 'd3cb0c2c-d405-4bc7-91a3-2022440d5267'
 
 onMounted(async () => {
   donneesCarnetSante.value = await apiService.getDonneesCarnetSante(carnetSanteId);
+  isLoading.value = false;
   const urlParams = new URLSearchParams(window.location.search);
   let accessToken: any = urlParams.get('accessToken');
   let refreshToken: any = urlParams.get('refreshToken');
