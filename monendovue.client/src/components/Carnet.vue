@@ -33,7 +33,9 @@
             <div v-if="isLoading" class="px-4">Chargement des données...</div>
             <CardContent v-else>
               <p v-if="lastDouleurEntry">
-                Dernière douleur ({{ lastDouleurEntry.typeDouleur }}) à <span class="highlight">{{ lastDouleurEntry.time }}</span> le {{ lastDouleurEntry.date }}
+                Dernière douleur ({{ lastDouleurEntry.typeDouleur }}) à <span class="highlight">{{
+                  lastDouleurEntry.time
+                }}</span> le {{ lastDouleurEntry.date }}
               </p>
               <p v-else>Pas de données</p>
             </CardContent>
@@ -49,7 +51,8 @@
             <div v-if="isLoading" class="px-4">Chargement des données...</div>
             <CardContent v-else>
               <p v-if="lastActiviteEntry">
-                Dernière activité ({{ lastActiviteEntry.typeActivite }}) à <span class="highlight">{{ lastActiviteEntry.time }}</span> le {{ lastActiviteEntry.date }}
+                Dernière activité ({{ lastActiviteEntry.typeActivite }}) à <span
+                  class="highlight">{{ lastActiviteEntry.time }}</span> le {{ lastActiviteEntry.date }}
               </p>
               <p v-else>Pas de données</p>
             </CardContent>
@@ -59,13 +62,14 @@
           <Card>
             <CardHeader>
               <i class="material-symbols-outlined" style="font-size: 48px;">medical_services</i>
-              <CardTitle>Médicaments</CardTitle>
-              <i class="material-symbols-outlined ml-auto">analytics</i>
+              <CardTitle>Traitements</CardTitle>
             </CardHeader>
             <CardContent>
               <p v-if="lastMedicamentEntry">Dernière prise ({{ lastMedicamentEntry.nom }}) à <span
                   class="highlight">{{ lastMedicamentEntry.heure }}</span> le {{ lastMedicamentEntry.date }}
-              </p></CardContent>
+              </p>
+              <p v-else>Pas de données</p>
+            </CardContent>
           </Card>
         </router-link>
         <!--        <Card>-->
@@ -78,35 +82,32 @@
         <!--            Règles dans <span class="highlight">3 jours</span>-->
         <!--          </CardContent>-->
         <!--        </Card>-->
-        <Card class="w-full col-span-3">
-          <CardHeader>
-            <i class="material-symbols-outlined" style="font-size: 48px;">event</i>
-            <CardTitle>Mes prochains rendez-vous</CardTitle>
-            <router-link to="/agenda" class="ml-auto">
-              <Button variant="custom">
-                Voir plus
-              </Button>
-            </router-link>
-          </CardHeader>
-          <CardContent class="flex justify-evenly px-16">
-            <div v-if="isLoading" class="px-4">Chargement des données...</div>
-            <div v-else-if="upcomingEvents.length === 0" class="px-4">Pas de rendez-vous à venir</div>
-            <div v-else v-for="event in upcomingEvents" :key="event.id"
-                 class="rounded-lg shadow-md p-4 mb-4 bg-white flex flex-col min-w-40">
-              <h2>{{ event.summary }}</h2>
-              <p>{{ event.description }}</p>
-              <p>{{ event.location }}</p>
-              <p class="mt-auto">
-                {{
-                  event.start.dateTime
-                      ? format(new Date(event.start.dateTime), "dd/MM 'à' H'h'mm")
-                      : event.start.date
-                          ? format(new Date(event.start.date), "dd/MM")
-                          : 'Date invalide'
-                }}
-              </p></div>
-          </CardContent>
-        </Card>
+        <router-link to="/agenda" class="ml-auto">
+          <Card>
+            <CardHeader class="w-full">
+              <i class="material-symbols-outlined" style="font-size: 48px;">event</i>
+              <CardTitle>Mes prochains <br>rendez-vous</CardTitle>
+            </CardHeader>
+            <CardContent class="flex">
+              <div v-if="isLoading" class="px-4">Chargement des données...</div>
+              <div v-else-if="upcomingEvents.length === 0">Pas de rendez-vous à venir</div>
+              <div v-else v-for="event in upcomingEvents" :key="event.id"
+                   class="rounded-lg shadow-md p-4 mb-4 bg-white flex flex-col min-w-40  justify-evenly px-16">
+                <h2>{{ event.summary }}</h2>
+                <p>{{ event.description }}</p>
+                <p>{{ event.location }}</p>
+                <p class="mt-auto">
+                  {{
+                    event.start.dateTime
+                        ? format(new Date(event.start.dateTime), "dd/MM 'à' H'h'mm")
+                        : event.start.date
+                            ? format(new Date(event.start.date), "dd/MM")
+                            : 'Date invalide'
+                  }}
+                </p></div>
+            </CardContent>
+          </Card>
+        </router-link>
 
         <!--        <Card class="w-full col-span-3 p-4">-->
         <!--          <div class="flex gap-4">-->

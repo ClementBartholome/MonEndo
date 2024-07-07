@@ -52,13 +52,13 @@ const handleLogout = async () => {
           <li class="flex items-center" :class="{ active: $route.path === '/activite' }">
             <a href="/activite" class="flex flex-col items-center text-dark w-full">
               <span class="material-symbols-outlined">directions_run</span>
-              <span>Activite</span>
+              <span>Activité</span>
             </a>
           </li>
           <li class="flex items-center" :class="{ active: $route.path === '/medicaments' }">
             <a href="/medicaments" class="flex flex-col items-center text-dark w-full">
               <span class="material-symbols-outlined">pill</span>
-              <span>Medicaments</span>
+              <span>Traitements</span>
             </a>
           </li>
           <li class="flex items-center" :class="{ active: $route.path === '/agenda' }">
