@@ -28,7 +28,6 @@
             <CardHeader>
               <i class="material-symbols-outlined" style="font-size: 48px;">sick</i>
               <CardTitle>Douleurs</CardTitle>
-              <i class="material-symbols-outlined ml-auto">analytics</i>
             </CardHeader>
             <div v-if="isLoading" class="px-4">Chargement des données...</div>
             <CardContent v-else>
@@ -46,7 +45,6 @@
             <CardHeader>
               <i class="material-symbols-outlined" style="font-size: 48px;">directions_run</i>
               <CardTitle>Activité Physique</CardTitle>
-              <i class="material-symbols-outlined ml-auto">analytics</i>
             </CardHeader>
             <div v-if="isLoading" class="px-4">Chargement des données...</div>
             <CardContent v-else>
