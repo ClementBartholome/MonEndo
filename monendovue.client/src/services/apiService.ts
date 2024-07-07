@@ -1,6 +1,6 @@
 ﻿import axios from 'axios';
 
-const API_URL = 'https://localhost:7206/';
+const API_URL = 'https://monendoapi.azurewebsites.net/';
 
 const apiService = {
     async getDonneesCarnetSante(carnetSanteId: number) {
