@@ -32,7 +32,10 @@
             </CardHeader>
             <div v-if="isLoading" class="px-4">Chargement des données...</div>
             <CardContent v-else>
-              {{ lastDouleurEntry ? `${lastDouleurEntry.time} : ${lastDouleurEntry.typeDouleur}` : 'Pas de données' }}
+              <p v-if="lastDouleurEntry">
+                Dernière douleur ({{ lastDouleurEntry.typeDouleur }}) à <span class="highlight">{{ lastDouleurEntry.time }}</span> le {{ lastDouleurEntry.date }}
+              </p>
+              <p v-else>Pas de données</p>
             </CardContent>
           </Card>
         </router-link>
@@ -45,9 +48,10 @@
             </CardHeader>
             <div v-if="isLoading" class="px-4">Chargement des données...</div>
             <CardContent v-else>
-              {{
-                lastActiviteEntry ? `${lastActiviteEntry.time} : ${lastActiviteEntry.typeActivite}` : 'Pas de données'
-              }}
+              <p v-if="lastActiviteEntry">
+                Dernière activité ({{ lastActiviteEntry.typeActivite }}) à <span class="highlight">{{ lastActiviteEntry.time }}</span> le {{ lastActiviteEntry.date }}
+              </p>
+              <p v-else>Pas de données</p>
             </CardContent>
           </Card>
         </router-link>
@@ -59,8 +63,9 @@
               <i class="material-symbols-outlined ml-auto">analytics</i>
             </CardHeader>
             <CardContent>
-              <p>Prise de médicaments à <span class="highlight">10h</span></p>
-            </CardContent>
+              <p v-if="lastMedicamentEntry">Dernière prise ({{ lastMedicamentEntry.nom }}) à <span
+                  class="highlight">{{ lastMedicamentEntry.heure }}</span> le {{ lastMedicamentEntry.date }}
+              </p></CardContent>
           </Card>
         </router-link>
         <!--        <Card>-->
@@ -154,6 +159,7 @@ const userId = 'd3cb0c2c-d405-4bc7-91a3-2022440d5267'
 
 onMounted(async () => {
   donneesCarnetSante.value = await apiService.getLastDonneesCarnetSante(carnetSanteId);
+  console.log(donneesCarnetSante.value)
   isLoading.value = false;
   const urlParams = new URLSearchParams(window.location.search);
   let accessToken: any = urlParams.get('accessToken');
@@ -282,6 +288,7 @@ const lastDouleurEntry = computed(() => {
     return {
       typeDouleur: lastEntry.typeDouleur,
       time: time,
+      date: date.toLocaleDateString()
     };
   }
   return null;
@@ -297,6 +304,24 @@ const lastActiviteEntry = computed(() => {
     return {
       typeActivite: lastEntry.typeActivite,
       time: time,
+      date: date.toLocaleDateString()
+    };
+  }
+  return null;
+});
+
+const lastMedicamentEntry = computed(() => {
+  if (donneesCarnetSante.value && donneesCarnetSante.value.donneesMedicament) {
+    const lastEntry = donneesCarnetSante.value.donneesMedicament;
+    const date = new Date(lastEntry.date);
+    const hours = date.getHours().toString().padStart(2, '0');
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+    const time = `${hours}h${minutes}`;
+    console.log(lastEntry)
+    return {
+      nom: lastEntry.medicament.nom,
+      heure: time,
+      date: date.toLocaleDateString()
     };
   }
   return null;

@@ -8,4 +8,6 @@ public class CarnetHomepageViewModel
     public int CarnetSanteId { get; set; }
     public DonneesDouleur? DonneesDouleur { get; set; }
     public DonneesActivitePhysique? DonneesActivitePhysique { get; set; }
+    public DonneesMedicament? DonneesMedicament { get; set; }
+    public string? NomMedicament { get; set; }
 }

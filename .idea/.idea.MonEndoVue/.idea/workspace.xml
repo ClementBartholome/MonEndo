@@ -9,40 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f99945a-a041-4f08-a884-b638ca21b13c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/MonEndoVue.Server/Controllers/DonneesMedicamentController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MonEndoVue.Server/Controllers/MedicamentController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MonEndoVue.Server/Migrations/20240705090224_CreateTablesMedicamentsAndDonneesMedicaments.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MonEndoVue.Server/Migrations/20240705090224_CreateTablesMedicamentsAndDonneesMedicaments.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MonEndoVue.Server/Migrations/20240705131253_AlterColumnFinTraitementMedicamentNullable.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MonEndoVue.Server/Migrations/20240705131253_AlterColumnFinTraitementMedicamentNullable.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MonEndoVue.Server/ViewModels/DonneesMedicamentViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/monendovue.client/src/pages/ActivitePage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/monendovue.client/src/pages/MedicamentPage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/monendovue.client/src/pages/PainPage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/qodana.yaml" afterDir="false" />
+    <list default="true" id="2f99945a-a041-4f08-a884-b638ca21b13c" name="Changes" comment="feat(medicaments): ajout de la section pour le suivi des prises de médicaments">
+      <change afterPath="$PROJECT_DIR$/MonEndoVue.Server/Migrations/20240707111141_UpdateModeleDonneesMedicamentAddNavigationProperty.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MonEndoVue.Server/Migrations/20240707111141_UpdateModeleDonneesMedicamentAddNavigationProperty.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MonEndoVue/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MonEndoVue/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonEndoVue.Server/Controllers/CarnetSanteController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonEndoVue.Server/Controllers/CarnetSanteController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonEndoVue.Server/Controllers/DonneesDouleursController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonEndoVue.Server/Controllers/DonneesDouleursController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonEndoVue.Server/Data/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonEndoVue.Server/Data/AppDbContext.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonEndoVue.Server/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonEndoVue.Server/Migrations/AppDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonEndoVue.Server/Models/CarnetSante.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonEndoVue.Server/Models/CarnetSante.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonEndoVue.Server/Models/Medicament.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonEndoVue.Server/Models/Medicament.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonEndoVue.Server/Models/DonneesMedicament.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonEndoVue.Server/Models/DonneesMedicament.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MonEndoVue.Server/Services/CarnetSanteService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonEndoVue.Server/Services/CarnetSanteService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonEndoVue.Server/Services/GoogleApiService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonEndoVue.Server/Services/GoogleApiService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonEndoVue.Server/ViewModels/CarnetViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonEndoVue.Server/ViewModels/CarnetViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonEndoVue.Server/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/MonEndoVue.Server/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonEndoVue.Server/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/MonEndoVue.Server/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/monendovue.client/src/assets/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/monendovue.client/src/assets/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/monendovue.client/src/components/ActiviteForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/monendovue.client/src/components/ActiviteForm.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonEndoVue.Server/ViewModels/CarnetHomepageViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonEndoVue.Server/ViewModels/CarnetHomepageViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/monendovue.client/src/components/Carnet.vue" beforeDir="false" afterPath="$PROJECT_DIR$/monendovue.client/src/components/Carnet.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/monendovue.client/src/components/Datatable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/monendovue.client/src/components/Datatable.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/monendovue.client/src/components/Layout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/monendovue.client/src/components/Layout.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/monendovue.client/src/components/PainForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/monendovue.client/src/components/PainForm.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/monendovue.client/src/components/ui/select/SelectTrigger.vue" beforeDir="false" afterPath="$PROJECT_DIR$/monendovue.client/src/components/ui/select/SelectTrigger.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/monendovue.client/src/pages/HomePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/monendovue.client/src/pages/HomePage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/monendovue.client/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/monendovue.client/src/router/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/monendovue.client/src/services/apiService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/monendovue.client/src/services/apiService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monendovue.client/src/pages/ActivitePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/monendovue.client/src/pages/ActivitePage.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,12 +57,7 @@
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/5535e31a712343a63f5d7d796cd874e563e5ac14/src/libraries/Microsoft.Extensions.Configuration.Abstractions/src/ConfigurationExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/5535e31a712343a63f5d7d796cd874e563e5ac14/src/libraries/Microsoft.Extensions.Configuration/src/ConfigurationManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/379024c0d7b82f968b5dc237a7b9164f6a147f6af295eefb6a7eec9ff453eca/AuthorizationCodeFlow.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Clementoss/source/repos/MonEndoVue/MonEndoVue.Server/Data/AppDbContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Clementoss/source/repos/MonEndoVue/MonEndoVue.Server/Migrations/AppDbContextModelSnapshot.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Clementoss/source/repos/MonEndoVue/MonEndoVue.Server/appsettings.Development.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Clementoss/source/repos/MonEndoVue/MonEndoVue.Server/appsettings.Development.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Clementoss/source/repos/MonEndoVue/MonEndoVue.Server/appsettings.Development.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Clementoss/source/repos/MonEndoVue/MonEndoVue.Server/appsettings.Development.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MonEndoVue.Server/wwwroot/lib/jquery/dist/jquery.min.map" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/monendovue.client/package-lock.json" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -232,7 +203,7 @@
       <workItem from="1719818014603" duration="9621000" />
       <workItem from="1720171492504" duration="13871000" />
       <workItem from="1720255239396" duration="6047000" />
-      <workItem from="1720346012616" duration="4084000" />
+      <workItem from="1720346012616" duration="5648000" />
     </task>
     <task id="LOCAL-00001" summary="feat(setup): initial commit">
       <option name="closed" value="true" />
@@ -322,7 +293,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720169954607</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="feat(medicaments): ajout de la section pour le suivi des prises de médicaments">
+      <option name="closed" value="true" />
+      <created>1720350332622</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1720350332622</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -345,7 +324,8 @@
     <MESSAGE value="feat(setup): initial commit" />
     <MESSAGE value="socle 0.1" />
     <MESSAGE value="fix(api): correction api url sur l'env de dev + ajout jwt key" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(api): correction api url sur l'env de dev + ajout jwt key" />
+    <MESSAGE value="feat(medicaments): ajout de la section pour le suivi des prises de médicaments" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(medicaments): ajout de la section pour le suivi des prises de médicaments" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -92,6 +92,7 @@ public class CarnetSanteService
             .Include(c => c.User)
             .Include(c => c.DonneesDouleurs.OrderBy(d => d.Date))
             .Include(c => c.DonneesActivitePhysique.OrderBy(d => d.Date))
+            .Include(c => c.DonneesMedicaments.OrderBy(d => d.Date))
             .FirstOrDefaultAsync(c => c.Id == carnetSanteId);
 
         if (carnetSante == null)
@@ -108,13 +109,21 @@ public class CarnetSanteService
             .Where(d => d.CarnetSanteId == carnetSanteId)
             .OrderByDescending(d => d.Date)
             .FirstOrDefaultAsync();
+        
+        var derniereDonneesMedicaments = await _context.DonneesMedicaments
+            .Where(d => d.CarnetSanteId == carnetSanteId)
+            .OrderByDescending(d => d.Date)
+            .Include(d => d.Medicament)
+            .FirstOrDefaultAsync();
 
         return new CarnetHomepageViewModel
         {
             UserName = carnetSante.User?.UserName,
             CarnetSanteId = carnetSante.Id,
             DonneesDouleur = derniereDonneesDouleur,
-            DonneesActivitePhysique = derniereDonneesActivitePhysique
+            DonneesActivitePhysique = derniereDonneesActivitePhysique,
+            DonneesMedicament = derniereDonneesMedicaments,
+            NomMedicament = derniereDonneesMedicaments!.Medicament.Nom
         };
     }
 }

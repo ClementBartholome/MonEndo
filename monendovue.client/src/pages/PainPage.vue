@@ -133,7 +133,7 @@
             </SelectContent>
           </Select>
         </div>
-        <p>Moyenne d'intensité des douleurs ({{ filteredIntensityEntries.length }} entrées)</p>
+        <p>Moyenne d'intensité des douleurs ({{ filteredIntensityEntries.length }} {{ filteredIntensityEntries.length > 1 ? 'entrées' : 'entrée' }})</p>
         <span class="text-5xl text-highlight">{{ averageIntensity }}</span>
         <i class="material-symbols-outlined text-7xl text-button">{{ intensityIcon }}</i>
       </section>

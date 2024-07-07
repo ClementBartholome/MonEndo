@@ -151,7 +151,7 @@
             </SelectContent>
           </Select>
         </div>
-        <p>Durée totale ({{ filteredEntriesForTendances.length }} entrées)</p>
+        <p>Durée totale ({{ filteredEntriesForTendances.length }} {{ filteredEntriesForTendances.length > 1 ? 'entrées' : 'entrée' }})</p>
         <span class="text-5xl text-highlight">{{ totalSessionDuration }}</span>
         <!--        <i class="material-symbols-outlined text-7xl text-button">test</i>-->
       </section>

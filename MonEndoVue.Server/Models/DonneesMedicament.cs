@@ -7,4 +7,6 @@ public class DonneesMedicament
     public int MedicamentId { get; set; }
     public DateTime Date { get; set; }
     public string? Commentaire { get; set; }
+    
+    public Medicament Medicament { get; set; }
 }
