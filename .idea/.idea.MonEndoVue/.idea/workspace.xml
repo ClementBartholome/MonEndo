@@ -9,10 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f99945a-a041-4f08-a884-b638ca21b13c" name="Changes" comment="fix(api): correction api url sur l'env de prod">
+    <list default="true" id="2f99945a-a041-4f08-a884-b638ca21b13c" name="Changes" comment="feat(style): ajustements mineurs de la mise en page">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MonEndoVue/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MonEndoVue/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/monendovue.client/src/components/Carnet.vue" beforeDir="false" afterPath="$PROJECT_DIR$/monendovue.client/src/components/Carnet.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/monendovue.client/src/components/Layout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/monendovue.client/src/components/Layout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monendovue.client/src/pages/ActivitePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/monendovue.client/src/pages/ActivitePage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monendovue.client/src/pages/MedicamentPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/monendovue.client/src/pages/MedicamentPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monendovue.client/src/pages/PainPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/monendovue.client/src/pages/PainPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monendovue.client/src/pages/Schedule.vue" beforeDir="false" afterPath="$PROJECT_DIR$/monendovue.client/src/pages/Schedule.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -316,7 +319,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720352242057</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="feat(style): ajustements mineurs de la mise en page">
+      <option name="closed" value="true" />
+      <created>1720367240520</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1720367240520</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -341,7 +352,8 @@
     <MESSAGE value="fix(api): correction api url sur l'env de dev + ajout jwt key" />
     <MESSAGE value="feat(medicaments): ajout de la section pour le suivi des prises de médicaments" />
     <MESSAGE value="fix(api): correction api url sur l'env de prod" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(api): correction api url sur l'env de prod" />
+    <MESSAGE value="feat(style): ajustements mineurs de la mise en page" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(style): ajustements mineurs de la mise en page" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

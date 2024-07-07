@@ -82,11 +82,11 @@
         <!--            Règles dans <span class="highlight">3 jours</span>-->
         <!--          </CardContent>-->
         <!--        </Card>-->
-        <router-link to="/agenda" class="ml-auto">
+        <router-link to="/agenda" class="w-full col-span-3">
           <Card>
             <CardHeader class="w-full">
               <i class="material-symbols-outlined" style="font-size: 48px;">event</i>
-              <CardTitle>Mes prochains <br>rendez-vous</CardTitle>
+              <CardTitle>Mes prochains RDV</CardTitle>
             </CardHeader>
             <CardContent class="flex">
               <div v-if="isLoading" class="px-4">Chargement des données...</div>

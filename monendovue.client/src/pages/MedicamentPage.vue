@@ -20,7 +20,7 @@
             <DialogHeader>
               <DialogTitle class="text-2xl">Ajouter une prise</DialogTitle>
             </DialogHeader>
-            <form class="mt-8 flex flex-col gap-6" @submit.prevent="onSubmitPriseForm">
+            <form class="flex flex-col gap-6" @submit.prevent="onSubmitPriseForm">
               <FormField v-slot="{ componentField }" name="nom">
                 <FormItem>
                   <FormLabel>Nom du médicament</FormLabel>

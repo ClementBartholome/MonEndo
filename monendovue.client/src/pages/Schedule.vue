@@ -1,18 +1,33 @@
 ﻿<template>
   <section class="container mt-16">
-    <Button variant="custom" @click="refreshData" class="refresh-button mb-4">Actualiser les données</Button>
+    <div class="flex justify-between items-center w-full gap-4 mb-4">
+      <router-link to="/">
+        <Button variant="custom"
+                class="flex gap-2 items-center cursor-pointer hover:opacity-80 transition-opacity">
+          <i class="material-symbols-outlined ">arrow_back</i>
+          <span>Revenir en arrière</span>
+        </Button>
+      </router-link>
+      <Button variant="custom" @click="refreshData" class="flex gap-2 items-center cursor-pointer hover:opacity-80 transition-opacity">Actualiser les données
+        <span class="material-symbols-outlined">refresh</span>
+      </Button>
+
+    </div>
     <div v-if="loading">Chargement des données du calendrier...</div>
-    <FullCalendar v-else :options="calendarOptions" />
-    <div v-if="selectedDate && popperPosition" :style="{zIndex: 9999, position: 'absolute', top: `${popperPosition.y}px`, left: `${popperPosition.x}px`}">
+    <FullCalendar v-else :options="calendarOptions"/>
+    <div v-if="selectedDate && popperPosition"
+         :style="{zIndex: 9999, position: 'absolute', top: `${popperPosition.y}px`, left: `${popperPosition.x}px`}">
       <div class="bg-white p-4 rounded-lg shadow-md">
-        <i @click="selectedDate = null" class="material-symbols-outlined hover:opacity-70 transition-opacity cursor-pointer absolute" style="right: 10px; top: 10px;">close</i>
+        <i @click="selectedDate = null"
+           class="material-symbols-outlined hover:opacity-70 transition-opacity cursor-pointer absolute"
+           style="right: 10px; top: 10px;">close</i>
         <h2 class="text-lg">Ajouter un événement</h2>
         <form>
           <div class="flex flex-col gap-4">
-            <Input type="text" placeholder="Titre" />
-            <Input type="text" placeholder="Heure de début" />
-            <Input type="text" placeholder="Heure de fin" />
-            <Input type="text" placeholder="Lieu" />
+            <Input type="text" placeholder="Titre"/>
+            <Input type="text" placeholder="Heure de début"/>
+            <Input type="text" placeholder="Heure de fin"/>
+            <Input type="text" placeholder="Lieu"/>
             <Button type="submit" variant="custom">Ajouter</Button>
           </div>
         </form>
@@ -40,7 +55,7 @@ const loading = ref(true);
 const selectedDate = ref(null);
 type PositionType = { x: number; y: number; };
 
-const popperPosition: Ref<PositionType> = ref({ x: 0, y: 0 });
+const popperPosition: Ref<PositionType> = ref({x: 0, y: 0});
 
 let refreshIntervalId;
 
@@ -104,7 +119,7 @@ let calendarOptions = computed(() => {
     views: {
       dayGridFourWeek: {
         type: 'dayGridWeek',
-        duration: { days: 4 }
+        duration: {days: 4}
       }
     },
     headerToolbar: {
@@ -119,7 +134,7 @@ let calendarOptions = computed(() => {
     events: events.value,
     height: 850,
     locale: frLocale,
-    dateClick: function(info) {
+    dateClick: function (info) {
       selectedDate.value = info.dateStr;
       popperPosition.value = {
         x: info.jsEvent.clientX,
@@ -134,14 +149,14 @@ let calendarOptions = computed(() => {
 watch(events, () => {
   const isMobile = window.matchMedia('(max-width: 767px)').matches;
   const initialView = isMobile ? 'dayGridFourWeek' : 'dayGridMonth';
-  
+
   calendarOptions = computed(() => ({
     plugins: [googleCalendarPlugin, dayGridMonth, interactionPlugin, dayGridWeek],
     initialView: initialView,
     views: {
       dayGridFourWeek: {
         type: 'dayGridWeek',
-        duration: { days: 4 }
+        duration: {days: 4}
       }
     },
     headerToolbar: {
@@ -156,7 +171,7 @@ watch(events, () => {
     events: events.value,
     height: 850,
     locale: frLocale,
-    dateClick: function(info) {
+    dateClick: function (info) {
       selectedDate.value = info.dateStr;
       popperPosition.value = {
         x: info.jsEvent.clientX,

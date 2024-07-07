@@ -20,7 +20,7 @@
             <DialogHeader>
               <DialogTitle class="text-2xl">Ajouter une douleur</DialogTitle>
             </DialogHeader>
-            <form class="mt-8 flex flex-col gap-6" @submit="onSubmit">
+            <form class="flex flex-col gap-6" @submit="onSubmit">
               <FormField v-slot="{ componentField }" name="typeDouleur">
                 <FormItem>
                   <FormLabel>Type de douleur</FormLabel>
