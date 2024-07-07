@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MonEndoVue.Server.Data;
 
@@ -11,9 +12,11 @@ using MonEndoVue.Server.Data;
 namespace MonEndoVue.Server.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240705090224_CreateTablesMedicamentsAndDonneesMedicaments")]
+    partial class CreateTablesMedicamentsAndDonneesMedicaments
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -333,8 +336,6 @@ namespace MonEndoVue.Server.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CarnetSanteId");
-
                     b.ToTable("DonneesMedicaments");
                 });
 
@@ -352,7 +353,7 @@ namespace MonEndoVue.Server.Migrations
                     b.Property<DateTime>("DateDebutTraitement")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("DateFinTraitement")
+                    b.Property<DateTime>("DateFinTraitement")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Nom")
@@ -367,8 +368,6 @@ namespace MonEndoVue.Server.Migrations
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CarnetSanteId");
 
                     b.ToTable("Medicaments");
                 });
@@ -453,33 +452,11 @@ namespace MonEndoVue.Server.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("MonEndoVue.Server.Models.DonneesMedicament", b =>
-                {
-                    b.HasOne("MonEndoVue.Server.Models.CarnetSante", null)
-                        .WithMany("DonneesMedicaments")
-                        .HasForeignKey("CarnetSanteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("MonEndoVue.Server.Models.Medicament", b =>
-                {
-                    b.HasOne("MonEndoVue.Server.Models.CarnetSante", null)
-                        .WithMany("Medicaments")
-                        .HasForeignKey("CarnetSanteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("MonEndoVue.Server.Models.CarnetSante", b =>
                 {
                     b.Navigation("DonneesActivitePhysique");
 
                     b.Navigation("DonneesDouleurs");
-
-                    b.Navigation("DonneesMedicaments");
-
-                    b.Navigation("Medicaments");
                 });
 #pragma warning restore 612, 618
         }

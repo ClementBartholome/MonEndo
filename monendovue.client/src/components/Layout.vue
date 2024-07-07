@@ -43,6 +43,24 @@ const handleLogout = async () => {
               <span>Carnet</span>
             </a>
           </li>
+          <li class="flex items-center" :class="{ active: $route.path === '/douleurs' }">
+            <a href="/douleurs" class="flex flex-col items-center text-dark w-full">
+              <span class="material-symbols-outlined">sick</span>
+              <span>Douleurs</span>
+            </a>
+          </li>
+          <li class="flex items-center" :class="{ active: $route.path === '/activite' }">
+            <a href="/activite" class="flex flex-col items-center text-dark w-full">
+              <span class="material-symbols-outlined">directions_run</span>
+              <span>Activite</span>
+            </a>
+          </li>
+          <li class="flex items-center" :class="{ active: $route.path === '/medicaments' }">
+            <a href="/medicaments" class="flex flex-col items-center text-dark w-full">
+              <span class="material-symbols-outlined">pill</span>
+              <span>Medicaments</span>
+            </a>
+          </li>
           <li class="flex items-center" :class="{ active: $route.path === '/agenda' }">
             <a href="/agenda" class="flex flex-col items-center text-dark w-full">
               <span class="material-symbols-outlined">calendar_month</span>

@@ -10,4 +10,6 @@ public class CarnetSante
     public ApplicationUser? User { get; set; }
     public List<DonneesDouleur> DonneesDouleurs { get; set; }
     public List<DonneesActivitePhysique> DonneesActivitePhysique { get; set; }
+    public List<DonneesMedicament> DonneesMedicaments { get; set; }
+    public List<Medicament> Medicaments { get; set; }
 }

@@ -103,6 +103,82 @@ const apiService = {
             console.error(error);
             return null;
         }
+    },
+    
+    async deleteDonneesMedicament(donneesMedicamentId: number) {
+        try {
+            const response = await axios.delete(`${API_URL}DonneesMedicament/${donneesMedicamentId}`);
+
+            if (response.status === 204) {
+                console.log(response.data);
+                return response.data;
+            } else {
+                throw new Error('Delete failed');
+            }
+        } catch (error: any) {
+            console.error(error);
+            return null;
+        }
+    },
+    
+    async postMedicament(donneesMedicament: any) {
+        try {
+            const response = await axios.post(`${API_URL}Medicament`, donneesMedicament, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (response.status === 201) {
+                console.log(response.data);
+                return response.data;
+            } else {
+                throw new Error('Post failed');
+            }
+        } catch (error: any) {
+            console.error(error);
+            return null;
+        }
+    },
+    
+    async postDonneesPriseMedicament(donneesPriseMedicament: any) {
+        try {
+            const response = await axios.post(`${API_URL}DonneesMedicament`, donneesPriseMedicament, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (response.status === 201) {
+                console.log(response.data);
+                return response.data;
+            } else {
+                throw new Error('Post failed');
+            }
+        } catch (error: any) {
+            console.error(error);
+            return null;
+        }
+    },
+    
+    async putDonneesMedicament(medicamentId: number, donneesMedicament: any) {
+        try {
+            const response = await axios.put(`${API_URL}Medicament/${medicamentId}`, donneesMedicament, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (response.status === 200) {
+                console.log(response.data);
+                return response.data;
+            } else {
+                throw new Error('Put failed');
+            }
+        } catch (error: any) {
+            console.error(error);
+            return null;
+        }
     }
 }
 

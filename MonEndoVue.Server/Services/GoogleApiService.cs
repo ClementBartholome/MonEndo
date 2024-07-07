@@ -13,7 +13,7 @@ public class GoogleApiService
     private string clientId = "309720076969-f8emq2flsfap0i4jtrl26f6f1fb8ckmi.apps.googleusercontent.com";
     private string clientSecret = "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";
     
-    public async Task<string> GetAuthorizationUrl(string redirectUri)
+    public Task<string> GetAuthorizationUrl(string redirectUri)
     {
         // Create the authorization code flow.
         var flow = new GoogleAuthorizationCodeFlow(new GoogleAuthorizationCodeFlow.Initializer
@@ -29,6 +29,6 @@ public class GoogleApiService
         // Generate the authorization URL.
         var authorizationUrl = flow.CreateAuthorizationCodeRequest(redirectUri);
         authorizationUrl.RedirectUri = redirectUri;
-        return authorizationUrl.Build().ToString();
+        return Task.FromResult(authorizationUrl.Build().ToString());
     }
 }

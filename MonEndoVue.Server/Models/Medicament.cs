@@ -8,5 +8,5 @@ public class Medicament
     public string Posologie { get; set; }
     public bool TraitementEnCours { get; set; }
     public DateTime DateDebutTraitement { get; set; }
-    public DateTime DateFinTraitement { get; set; }
+    public DateTime? DateFinTraitement { get; set; }
 }

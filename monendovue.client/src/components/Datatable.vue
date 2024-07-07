@@ -39,7 +39,7 @@ const options = {
   language: {
     url: '//cdn.datatables.net/plug-ins/2.0.8/i18n/fr-FR.json',
     search: "<span class=\"material-symbols-outlined\">\search\</span>",
-    searchPlaceholder: 'Douleur pelvienne'
+    searchPlaceholder: 'Rechercher'
   },
   lengthChange: false,
   info: false,

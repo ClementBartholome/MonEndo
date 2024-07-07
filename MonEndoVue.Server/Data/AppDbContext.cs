@@ -9,5 +9,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : IdentityDbCo
     public DbSet<DonneesDouleur> DonneesDouleurs { get; set; }
     public DbSet<DonneesActivitePhysique> DonneesActivitePhysique { get; set; }
     public DbSet<CarnetSante> CarnetSantes { get; set; }
+    public DbSet<Medicament> Medicaments { get; set; }
+    public DbSet<DonneesMedicament> DonneesMedicaments { get; set; }
 
 }

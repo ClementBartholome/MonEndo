@@ -1,8 +1,11 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import {createRouter, createWebHistory} from 'vue-router'
 import HomePage from '@/pages/HomePage.vue'
 import Schedule from '@/pages/Schedule.vue'
 import LoginPage from "@/pages/LoginPage.vue";
 import {useAuthStore} from "@/store/auth";
+import PainPage from "@/pages/PainPage.vue";
+import ActivitePage from "@/pages/ActivitePage.vue";
+import MedicamentPage from "@/pages/MedicamentPage.vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,11 +17,26 @@ const router = createRouter({
             beforeEnter: (to, from, next) => {
                 const authStore = useAuthStore();
                 if (!authStore.token) {
-                    next({ name: 'login' });
+                    next({name: 'login'});
                 } else {
                     next();
                 }
             }
+        },
+        {
+            path: '/douleurs',
+            name: 'douleurs',
+            component: PainPage,
+        },
+        {
+            path: '/activite',
+            name: 'activite',
+            component: ActivitePage,
+        },
+        {
+            path: '/medicaments',
+            name: 'medicaments',
+            component: MedicamentPage,
         },
         {
             path: '/agenda',

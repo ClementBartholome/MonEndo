@@ -23,48 +23,56 @@
         <!--        </Popover>-->
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 responsive-layout">
-        <Card @click="$emit('show-pain-form')">
-          <CardHeader>
-            <i class="material-symbols-outlined" style="font-size: 48px;">sick</i>
-            <CardTitle>Douleurs</CardTitle>
-            <i class="material-symbols-outlined ml-auto">analytics</i>
-          </CardHeader>
-          <div v-if="isLoading" class="px-4">Chargement des données...</div>
-          <CardContent v-else>
-            {{ lastDouleurEntry ? `${lastDouleurEntry.time} : ${lastDouleurEntry.typeDouleur}` : 'Pas de données' }}
-          </CardContent>
-        </Card>
-        <Card @click="$emit('show-activite-form')">
-          <CardHeader>
-            <i class="material-symbols-outlined" style="font-size: 48px;">directions_run</i>
-            <CardTitle>Activité Physique</CardTitle>
-            <i class="material-symbols-outlined ml-auto">analytics</i>
-          </CardHeader>
-          <div v-if="isLoading" class="px-4">Chargement des données...</div>
-          <CardContent v-else>
-            {{ lastActiviteEntry ? `${lastActiviteEntry.time} : ${lastActiviteEntry.typeActivite}` : 'Pas de données' }}
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader>
-            <i class="material-symbols-outlined" style="font-size: 48px;">medical_services</i>
-            <CardTitle>Médicaments</CardTitle>
-            <i class="material-symbols-outlined ml-auto">analytics</i>
-          </CardHeader>
-          <CardContent>
-            <p>Prise de médicaments à <span class="highlight">10h</span></p>
-          </CardContent>
-        </Card>
-<!--        <Card>-->
-<!--          <CardHeader>-->
-<!--            <i class="material-symbols-outlined" style="font-size: 48px;">menstrual_health</i>-->
-<!--            <CardTitle>Cycle menstruel</CardTitle>-->
-<!--            <i class="material-symbols-outlined ml-auto">analytics</i>-->
-<!--          </CardHeader>-->
-<!--          <CardContent>-->
-<!--            Règles dans <span class="highlight">3 jours</span>-->
-<!--          </CardContent>-->
-<!--        </Card>-->
+        <router-link to="/douleurs">
+          <Card>
+            <CardHeader>
+              <i class="material-symbols-outlined" style="font-size: 48px;">sick</i>
+              <CardTitle>Douleurs</CardTitle>
+              <i class="material-symbols-outlined ml-auto">analytics</i>
+            </CardHeader>
+            <div v-if="isLoading" class="px-4">Chargement des données...</div>
+            <CardContent v-else>
+              {{ lastDouleurEntry ? `${lastDouleurEntry.time} : ${lastDouleurEntry.typeDouleur}` : 'Pas de données' }}
+            </CardContent>
+          </Card>
+        </router-link>
+        <router-link to="/activite">
+          <Card>
+            <CardHeader>
+              <i class="material-symbols-outlined" style="font-size: 48px;">directions_run</i>
+              <CardTitle>Activité Physique</CardTitle>
+              <i class="material-symbols-outlined ml-auto">analytics</i>
+            </CardHeader>
+            <div v-if="isLoading" class="px-4">Chargement des données...</div>
+            <CardContent v-else>
+              {{
+                lastActiviteEntry ? `${lastActiviteEntry.time} : ${lastActiviteEntry.typeActivite}` : 'Pas de données'
+              }}
+            </CardContent>
+          </Card>
+        </router-link>
+        <router-link to="/medicaments">
+          <Card>
+            <CardHeader>
+              <i class="material-symbols-outlined" style="font-size: 48px;">medical_services</i>
+              <CardTitle>Médicaments</CardTitle>
+              <i class="material-symbols-outlined ml-auto">analytics</i>
+            </CardHeader>
+            <CardContent>
+              <p>Prise de médicaments à <span class="highlight">10h</span></p>
+            </CardContent>
+          </Card>
+        </router-link>
+        <!--        <Card>-->
+        <!--          <CardHeader>-->
+        <!--            <i class="material-symbols-outlined" style="font-size: 48px;">menstrual_health</i>-->
+        <!--            <CardTitle>Cycle menstruel</CardTitle>-->
+        <!--            <i class="material-symbols-outlined ml-auto">analytics</i>-->
+        <!--          </CardHeader>-->
+        <!--          <CardContent>-->
+        <!--            Règles dans <span class="highlight">3 jours</span>-->
+        <!--          </CardContent>-->
+        <!--        </Card>-->
         <Card class="w-full col-span-3">
           <CardHeader>
             <i class="material-symbols-outlined" style="font-size: 48px;">event</i>
@@ -78,10 +86,11 @@
           <CardContent class="flex justify-evenly px-16">
             <div v-if="isLoading" class="px-4">Chargement des données...</div>
             <div v-else-if="upcomingEvents.length === 0" class="px-4">Pas de rendez-vous à venir</div>
-            <div v-else v-for="event in upcomingEvents" :key="event.id" class="rounded-lg shadow-md p-4 mb-4 bg-white flex flex-col min-w-40">
+            <div v-else v-for="event in upcomingEvents" :key="event.id"
+                 class="rounded-lg shadow-md p-4 mb-4 bg-white flex flex-col min-w-40">
               <h2>{{ event.summary }}</h2>
-              <p>{{event.description}}</p>
-              <p>{{event.location}}</p>
+              <p>{{ event.description }}</p>
+              <p>{{ event.location }}</p>
               <p class="mt-auto">
                 {{
                   event.start.dateTime
@@ -90,7 +99,7 @@
                           ? format(new Date(event.start.date), "dd/MM")
                           : 'Date invalide'
                 }}
-              </p>            </div>
+              </p></div>
           </CardContent>
         </Card>
 

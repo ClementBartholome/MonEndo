@@ -8,4 +8,6 @@ public class CarnetViewModel
     public int CarnetSanteId { get; set; }
     public List<DonneesDouleur>? DonneesDouleur { get; set; }
     public List<DonneesActivitePhysique>? DonneesActivitePhysique { get; set; }
+    public IEnumerable<DonneesMedicamentViewModel>? DonneesMedicament { get; set; }
+    public List<Medicament>? Medicaments { get; set; }
 }

@@ -25,13 +25,6 @@ namespace MonEndoVue.Server.Controllers
             _carnetSanteService = carnetSanteService;
         }
 
-        // GET: api/CarnetSante
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<CarnetSante>>> GetCarnetSantes()
-        {
-            return await _context.CarnetSantes.ToListAsync();
-        }
-
         // PUT: api/CarnetSante/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
