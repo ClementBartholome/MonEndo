@@ -34,7 +34,7 @@ public class GoogleApiController : ControllerBase
         var tokenResponse = await flow.ExchangeCodeForTokenAsync(userId, code, redirectUri, CancellationToken.None);
         var refreshToken = tokenResponse.RefreshToken;
 
-        var redirectUrl = $"https://localhost:5173/?accessToken={tokenResponse.AccessToken}&refreshToken={refreshToken}";
+        var redirectUrl = $"https://monendoapi.azurewebsites.net/?accessToken={tokenResponse.AccessToken}&refreshToken={refreshToken}";
 
         return Redirect(redirectUrl);
     }
