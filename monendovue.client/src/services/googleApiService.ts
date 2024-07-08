@@ -2,7 +2,7 @@
 
 const googleApiService = {
     async getAuthorizationUrl(userId: string) {
-        const response = await axios.get(`https://monendoapi.azurewebsites.net/GoogleApi/authenticate?userId=${userId}`);
+        const response = await axios.get(`https://localhost:7206/GoogleApi/authenticate?userId=${userId}`);
         return response.data;
     },
     async getUpcomingEvents(accessToken) {
@@ -21,7 +21,7 @@ const googleApiService = {
         return response.data.items.filter(event => event.summary.includes('MED'));
     },
     async refreshAccessToken(userId: string, refreshToken: string) {
-        const response = await axios.get(`https://monendoapi.azurewebsites.net/GoogleApi/refreshToken?userId=${userId}&refreshToken=${refreshToken}`);
+        const response = await axios.get(`https://localhost:7206/GoogleApi/refreshToken?userId=${userId}&refreshToken=${refreshToken}`);
         return response.data;
     }
 }
