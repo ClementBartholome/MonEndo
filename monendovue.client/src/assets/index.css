@@ -337,6 +337,12 @@ td, th {
     }
 }
 
+.hide-xsm {
+    @media (max-width: 425px){
+        display: none;
+    }
+}
+
 
 /* Navbar */
 
