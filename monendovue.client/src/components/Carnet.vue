@@ -86,7 +86,7 @@
               <i class="material-symbols-outlined" style="font-size: 48px;">event</i>
               <CardTitle>Mes prochains RDV</CardTitle>
             </CardHeader>
-            <CardContent class="flex">
+            <CardContent class="flex flex-col md:flex-row text-center gap-4 md:gap-16">
               <div v-if="isLoading" class="px-4">Chargement des données...</div>
               <div v-else-if="upcomingEvents.length === 0">Pas de rendez-vous à venir</div>
               <div v-else v-for="event in upcomingEvents" :key="event.id"
@@ -156,6 +156,8 @@ const donneesCarnetSante = ref();
 const isLoading = ref(true);
 const userId = 'd3cb0c2c-d405-4bc7-91a3-2022440d5267'
 
+const upcomingEvents = ref<Event[]>([]);
+
 onMounted(async () => {
   donneesCarnetSante.value = await apiService.getLastDonneesCarnetSante(carnetSanteId);
   console.log(donneesCarnetSante.value)
@@ -189,6 +191,7 @@ onMounted(async () => {
 
   try {
     upcomingEvents.value = await googleApiService.getUpcomingEvents(accessToken);
+    console.log(upcomingEvents.value)
     isLoading.value = false;
   } catch (error: any) {
     if ((error.status === 401 || error.response.data.error.message.includes('invalid authentication credentials')) && refreshToken) { // Invalid token
@@ -223,7 +226,6 @@ interface Event {
   };
 }
 
-const upcomingEvents = ref<Event[]>([]);
 
 // const data = computed(() => {
 //   if (!donneesCarnetSante.value) {

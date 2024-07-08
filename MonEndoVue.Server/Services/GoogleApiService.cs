@@ -10,8 +10,8 @@ namespace MonEndoVue.Server.Services;
 
 public class GoogleApiService
 {
-    private string clientId = "744623412588-q46cvhifqpf3ablm4m9tulm3m88odihu.apps.googleusercontent.com";
-    private string clientSecret = "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";
+    private string clientId = Environment.GetEnvironmentVariable("GOOGLE_CLIENT_ID");
+    private string clientSecret = Environment.GetEnvironmentVariable("GOOGLE_CLIENT_SECRET");
     
     public Task<string> GetAuthorizationUrl(string redirectUri)
     {

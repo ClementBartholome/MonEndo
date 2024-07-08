@@ -75,8 +75,8 @@ const fetchEvents = async () => {
   do {
     const response = await fetch(`https://www.googleapis.com/calendar/v3/calendars/${calendarOptions.googleCalendarId}/events?key=${calendarOptions.googleCalendarApiKey}${pageToken ? '&pageToken=' + pageToken : ''}`)
     const data = await response.json()
-    const filteredEvents = data.items.filter(item => item.summary && item.summary.includes('MED')) // filter events
-    events.value = [...events.value, ...filteredEvents.map(item => ({ // map to FullCalendar event format
+    // const filteredEvents = data.items.filter(item => item.summary && item.summary.includes('MED')) // filter events
+    events.value = [...events.value, ...data.items.map(item => ({ // map to FullCalendar event format
       title: item.summary,
       start: item.start.dateTime || item.start.date,
       end: item.end.dateTime || item.end.date,
@@ -111,7 +111,7 @@ const refreshData = async () => {
   loading.value = false;
 };
 
-let calendarOptions = computed(() => {
+let calendarOptions: any = computed(() => {
   const isMobile = window.matchMedia('(max-width: 767px)').matches;
   const initialView = isMobile ? 'dayGridFourWeek' : 'dayGridMonth';
 
@@ -121,7 +121,8 @@ let calendarOptions = computed(() => {
     views: {
       dayGridFourWeek: {
         type: 'dayGridWeek',
-        duration: {days: 4}
+        duration: {days: 4},
+        dayHeaderFormat: { weekday: 'narrow', day: 'numeric', omitCommas: true }
       }
     },
     headerToolbar: {
@@ -158,7 +159,8 @@ watch(events, () => {
     views: {
       dayGridFourWeek: {
         type: 'dayGridWeek',
-        duration: {days: 4}
+        duration: {days: 4},
+        dayHeaderFormat: { weekday: 'narrow', day: 'numeric', omitCommas: true }
       }
     },
     headerToolbar: {
