@@ -5,10 +5,12 @@
         <Button variant="custom"
                 class="flex gap-2 items-center cursor-pointer hover:opacity-80 transition-opacity">
           <i class="material-symbols-outlined ">arrow_back</i>
-          <span>Revenir en arrière</span>
+          <span class="hide-xsm">Revenir en arrière</span>
         </Button>
       </router-link>
-      <Button variant="custom" @click="refreshData" class="flex gap-2 items-center cursor-pointer hover:opacity-80 transition-opacity">Actualiser les données
+      <Button variant="custom" @click="refreshData"
+              class="flex gap-2 items-center cursor-pointer hover:opacity-80 transition-opacity">
+        <span class="hide-xsm">Actualiser les données</span>
         <span class="material-symbols-outlined">refresh</span>
       </Button>
 
@@ -65,8 +67,8 @@ const fetchEvents = async () => {
   events.value = [];
   loading.value = true;
   const calendarOptions = {
-    googleCalendarApiKey: 'AIzaSyBUZn9KlA-tPkkaplM0m8B-OhznnXviTc4',
-    googleCalendarId: "clementoss@gmail.com"
+    googleCalendarApiKey: 'AIzaSyByp9cr-Vay_inRQw_Yt3zJj95LFmG6nJc',
+    googleCalendarId: "coralie.ow@gmail.com"
   };
 
   let pageToken;
@@ -130,7 +132,7 @@ let calendarOptions = computed(() => {
     buttonText: {
       dayGridFourWeek: 'semaine'
     },
-    googleCalendarApiKey: 'AIzaSyBUZn9KlA-tPkkaplM0m8B-OhznnXviTc4',
+    googleCalendarApiKey: 'AIzaSyByp9cr-Vay_inRQw_Yt3zJj95LFmG6nJc',
     events: events.value,
     height: 850,
     locale: frLocale,
@@ -167,7 +169,7 @@ watch(events, () => {
     buttonText: {
       dayGridFourWeek: 'semaine'
     },
-    googleCalendarApiKey: 'AIzaSyBUZn9KlA-tPkkaplM0m8B-OhznnXviTc4',
+    googleCalendarApiKey: 'AIzaSyByp9cr-Vay_inRQw_Yt3zJj95LFmG6nJc',
     events: events.value,
     height: 850,
     locale: frLocale,

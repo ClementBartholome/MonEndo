@@ -164,10 +164,11 @@ onMounted(async () => {
   let accessToken: any = urlParams.get('accessToken');
   let refreshToken: any = urlParams.get('refreshToken');
 
-  // If the tokens are in the URL, store them in localStorage
+  // Store tokens in localStorage if they are in the URL
   if (accessToken) {
     localStorage.setItem('googleAccessToken', accessToken);
   }
+
   if (refreshToken) {
     localStorage.setItem('googleRefreshToken', refreshToken);
   }
@@ -180,6 +181,7 @@ onMounted(async () => {
     refreshToken = localStorage.getItem('googleRefreshToken');
   }
 
+  // Redirect if both tokens are still null after attempting to retrieve them
   if (!accessToken && !refreshToken) {
     window.location.href = await googleApiService.getAuthorizationUrl(userId);
     return;

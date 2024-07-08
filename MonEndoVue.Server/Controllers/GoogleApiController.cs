@@ -11,8 +11,8 @@ namespace MonEndoVue.Server.Controllers;
 [Route("[controller]")]
 public class GoogleApiController : ControllerBase
 {
-    private string clientId = "309720076969-f8emq2flsfap0i4jtrl26f6f1fb8ckmi.apps.googleusercontent.com";
-    private string clientSecret = "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";
+    private string clientId = "744623412588-q46cvhifqpf3ablm4m9tulm3m88odihu.apps.googleusercontent.com";
+    private string clientSecret = "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";
     
     [HttpGet("authorize")]
     public async Task<IActionResult> Authorize(string code, string state)
@@ -34,7 +34,7 @@ public class GoogleApiController : ControllerBase
         var tokenResponse = await flow.ExchangeCodeForTokenAsync(userId, code, redirectUri, CancellationToken.None);
         var refreshToken = tokenResponse.RefreshToken;
 
-        var redirectUrl = $"https://localhost:7206/?accessToken={tokenResponse.AccessToken}&refreshToken={refreshToken}";
+        var redirectUrl = $"https://localhost:5173/?accessToken={tokenResponse.AccessToken}&refreshToken={refreshToken}";
 
         return Redirect(redirectUrl);
     }
