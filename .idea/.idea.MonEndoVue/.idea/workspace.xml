@@ -9,13 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f99945a-a041-4f08-a884-b638ca21b13c" name="Changes" comment="feat(agenda): màj de la config utilisée pour Google Calendar API">
+    <list default="true" id="2f99945a-a041-4f08-a884-b638ca21b13c" name="Changes" comment="mep 0.2 variables d'env">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MonEndoVue/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MonEndoVue/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonEndoVue.Server/Controllers/GoogleApiController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonEndoVue.Server/Controllers/GoogleApiController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonEndoVue.Server/Services/GoogleApiService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonEndoVue.Server/Services/GoogleApiService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/monendovue.client/src/components/Carnet.vue" beforeDir="false" afterPath="$PROJECT_DIR$/monendovue.client/src/components/Carnet.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/monendovue.client/src/pages/Schedule.vue" beforeDir="false" afterPath="$PROJECT_DIR$/monendovue.client/src/pages/Schedule.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/monendovue.client/src/services/googleApiService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/monendovue.client/src/services/googleApiService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monendovue.client/src/assets/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/monendovue.client/src/assets/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monendovue.client/src/components/ui/card/Card.vue" beforeDir="false" afterPath="$PROJECT_DIR$/monendovue.client/src/components/ui/card/Card.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monendovue.client/src/pages/ActivitePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/monendovue.client/src/pages/ActivitePage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monendovue.client/src/pages/MedicamentPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/monendovue.client/src/pages/MedicamentPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monendovue.client/src/pages/PainPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/monendovue.client/src/pages/PainPage.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +50,7 @@
     </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="mep-0.2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -70,6 +70,13 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/379024c0d7b82f968b5dc237a7b9164f6a147f6af295eefb6a7eec9ff453eca/AuthorizationCodeFlow.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Clementoss/source/repos/MonEndoVue/MonEndoVue.Server/Controllers/GoogleApiController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Clementoss/source/repos/MonEndoVue/MonEndoVue.Server/Controllers/GoogleApiController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Clementoss/source/repos/MonEndoVue/MonEndoVue.Server/Controllers/GoogleApiController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Clementoss/source/repos/MonEndoVue/MonEndoVue.Server/Controllers/GoogleApiController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Clementoss/source/repos/MonEndoVue/MonEndoVue.Server/Services/GoogleApiService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Clementoss/source/repos/MonEndoVue/MonEndoVue.Server/Services/GoogleApiService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Clementoss/source/repos/MonEndoVue/MonEndoVue.Server/Services/GoogleApiService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Clementoss/source/repos/MonEndoVue/MonEndoVue.Server/Services/GoogleApiService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Clementoss/source/repos/MonEndoVue/MonEndoVue.Server/Services/GoogleApiService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Clementoss/source/repos/MonEndoVue/MonEndoVue.Server/Services/GoogleApiService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MonEndoVue.Server/wwwroot/lib/jquery/dist/jquery.min.map" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/monendovue.client/package-lock.json" root0="SKIP_HIGHLIGHTING" />
@@ -95,7 +102,7 @@
     &quot;.NET Launch Settings Profile.MonEndoVue.Server: IIS Express.executor&quot;: &quot;Debug&quot;,
     &quot;.NET Launch Settings Profile.MonEndoVue.Server: https.executor&quot;: &quot;Debug&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -218,6 +225,7 @@
       <workItem from="1720255239396" duration="6047000" />
       <workItem from="1720346012616" duration="5648000" />
       <workItem from="1720459981485" duration="1233000" />
+      <workItem from="1720862331896" duration="688000" />
     </task>
     <task id="LOCAL-00001" summary="feat(setup): initial commit">
       <option name="closed" value="true" />
@@ -470,7 +478,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/monendovue.client/src/components/Carnet.vue</url>
           <line>192</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="43" />
         </line-breakpoint>
       </breakpoints>

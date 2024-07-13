@@ -408,6 +408,11 @@ td, th {
             justify-content: center;
             transition: transform 0.3s ease;
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            
+            @media (max-width: 425px) {
+                width: 50px;
+                height: 30px;
+            }
         }
     }
 
@@ -442,6 +447,10 @@ td, th {
             display: flex;
             gap: 0.5rem;
         }
+    }
+    
+    @media (max-width: 425px) {
+       gap: 0.7rem;
     }
 }
 

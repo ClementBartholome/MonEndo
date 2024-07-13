@@ -5,14 +5,14 @@
         <Button variant="custom"
                 class="flex gap-2 items-center cursor-pointer hover:opacity-80 transition-opacity">
           <i class="material-symbols-outlined ">arrow_back</i>
-          <span>Revenir en arrière</span>
+          <span class="hide-xsm">Revenir en arrière</span>
         </Button>
       </router-link>
       <div class="form-modal">
         <Dialog>
           <DialogTrigger class="flex gap-2 items-center cursor-pointer hover:opacity-80 transition-opacity">
             <Button variant="custom">
-              <span>Ajouter une prise</span>
+              <span class="hide-xsm">Ajouter une prise</span>
               <i class="material-symbols-outlined">add</i>
             </Button>
           </DialogTrigger>
