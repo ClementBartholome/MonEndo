@@ -88,7 +88,7 @@
             </CardHeader>
             <CardContent class="flex flex-col md:flex-row text-center gap-4 md:gap-16">
               <div v-if="isLoading" class="px-4">Chargement des données...</div>
-              <div v-else-if="upcomingEvents.length === 0">Pas de rendez-vous à venir</div>
+              <div v-else-if="upcomingEvents.length === 0" class="text-start">Pas de rendez-vous à venir</div>
               <div v-else v-for="event in upcomingEvents" :key="event.id"
                    class="rounded-lg shadow-md p-4 mb-4 bg-white flex flex-col min-w-40  justify-evenly px-16">
                 <h2>{{ event.summary }}</h2>
