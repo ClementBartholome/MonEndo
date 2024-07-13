@@ -20,15 +20,25 @@ const apiService = {
 
     async getLastDonneesCarnetSante(carnetSanteId: number) {
         try {
-            const response = await axios.get(`${API_URL}CarnetSante/lastentries/${carnetSanteId}`);
+            const url = `${API_URL}CarnetSante/lastentries/${carnetSanteId}`;
+            const response = await axios.get(url);
 
             if (response.status === 200) {
                 return response.data;
             } else {
-                throw new Error('Get failed');
+                throw new Error(`Get failed with status ${response.status} for URL ${url}`);
             }
         } catch (error: any) {
-            console.error(error);
+            if (error.response) {
+                // L'erreur provient de la réponse du serveur
+                console.error(`Error in getLastDonneesCarnetSante: ${error.message}, Response status: ${error.response.status}, URL: ${error.config.url}, Response data: ${JSON.stringify(error.response.data)}`);
+            } else if (error.request) {
+                // La requête a été faite mais aucune réponse n'a été reçue
+                console.error(`Error in getLastDonneesCarnetSante: ${error.message}, No response received for URL: ${error.config.url}`);
+            } else {
+                // Quelque chose s'est produit lors de la mise en place de la requête qui a déclenché une erreur
+                console.error(`Error in getLastDonneesCarnetSante: ${error.message}`);
+            }
             return null;
         }
     },
