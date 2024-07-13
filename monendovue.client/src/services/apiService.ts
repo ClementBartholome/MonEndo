@@ -20,13 +20,12 @@ const apiService = {
 
     async getLastDonneesCarnetSante(carnetSanteId: number) {
         try {
-            const url = `${API_URL}CarnetSante/lastentries/${carnetSanteId}`;
-            const response = await axios.get(url);
+            const response = await axios.get(`${API_URL}CarnetSante/lastentries/${carnetSanteId}`);
 
             if (response.status === 200) {
                 return response.data;
             } else {
-                throw new Error(`Get failed with status ${response.status} for URL ${url}`);
+                throw new Error(`Get failed`);
             }
         } catch (error: any) {
             if (error.response) {
