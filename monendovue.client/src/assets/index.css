@@ -150,8 +150,8 @@
     --form-placeholder: #4d4545;
     --highlight: #ff8ba7;
     --button-text: #33272a;
-    --font-title: "Bebas Neue", sans-serif;
-    --font-text: "Montserrat", sans-serif;
+    --font-title: "Bebas Neue", Arial, Helvetica, sans-serif;
+    --font-text: "Poppins", Arial, Helvetica, sans-serif;
 }
 
 /* Style global de la scrollbar */
