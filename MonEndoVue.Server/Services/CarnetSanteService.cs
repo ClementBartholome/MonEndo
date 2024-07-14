@@ -123,7 +123,7 @@ public class CarnetSanteService
             DonneesDouleur = derniereDonneesDouleur,
             DonneesActivitePhysique = derniereDonneesActivitePhysique,
             DonneesMedicament = derniereDonneesMedicaments,
-            NomMedicament = derniereDonneesMedicaments!.Medicament.Nom
+            NomMedicament = derniereDonneesMedicaments?.Medicament?.Nom
         };
     }
 }
