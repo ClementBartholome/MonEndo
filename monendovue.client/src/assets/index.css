@@ -349,6 +349,10 @@ td, th {
     max-width: 280px;
 }
 
+.text-2xl {
+    line-height: inherit;
+}
+
 /* Navbar */
 
 .logo {

@@ -23,7 +23,7 @@
             <form class="flex flex-col gap-6" @submit="onSubmit">
               <FormField v-slot="{ componentField }" name="typeDouleur">
                 <FormItem>
-                  <FormLabel>Type de douleur</FormLabel>
+                  <FormLabel>Type</FormLabel>
                   <FormControl>
                     <Input type="text" placeholder="Douleur pelvienne" v-bind="componentField"/>
                   </FormControl>
@@ -112,7 +112,7 @@
           />
         </div>
       </section>
-      <section class="flex flex-col h-auto items-center gap-4 w-4/12 container py-8 bg-clearer rounded-3xl shadow-md ml-auto">
+      <section class="flex flex-col h-auto items-center text-center gap-4 w-4/12 container py-8 bg-clearer rounded-3xl shadow-md ml-auto">
         <div class="flex gap-4">
           <h2 class="text-2xl self-start flex gap-4">
             <i class="material-symbols-outlined text-3xl">trending_up</i>
@@ -143,7 +143,7 @@
       <Datatable :entries="entries" :columns="columns" :deleteFunction="deleteDonneesDouleurs">
         <thead>
         <tr>
-          <th>Type de douleur</th>
+          <th>Type</th>
           <th>Date</th>
           <th>Heure</th>
           <th>Intensité</th>

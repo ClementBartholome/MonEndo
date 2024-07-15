@@ -130,7 +130,7 @@
         </div>
       </section>
       <section
-          class="flex flex-col h-auto items-center gap-4 w-4/12 container py-8 bg-clearer rounded-3xl shadow-md ml-auto">
+          class="flex flex-col h-auto text-center items-center gap-4 w-4/12 container py-8 bg-clearer rounded-3xl shadow-md ml-auto">
         <div class="flex gap-4">
           <h2 class="text-2xl self-start flex gap-4">
             <i class="material-symbols-outlined text-3xl">trending_up</i>
