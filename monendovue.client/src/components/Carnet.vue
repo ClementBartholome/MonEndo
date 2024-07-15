@@ -2,7 +2,7 @@
   <section class="flex flex-wrap h-auto container mx-auto mt-16 py-8 bg-clearer rounded-3xl shadow-md ml-auto">
     <div class="w-full mb-8">
       <div class="flex gap-8 responsive-layout">
-        <h1 class="text-3xl font-bold md:mb-4">Aujourd'hui - {{ formatDate(value || new Date()) }}</h1>
+        <h1 class="text-3xl md:mb-4">Aujourd'hui - {{ formatDate(value || new Date()) }}</h1>
         <!--        <Popover>-->
         <!--          <div class="relative">-->
         <!--            <PopoverTrigger as-child>-->
