@@ -188,6 +188,42 @@ const apiService = {
             console.error(error);
             return null;
         }
+    },
+    
+    async deleteDonneesTransit(donneesTransitId: number) {
+        try {
+            const response = await axios.delete(`${API_URL}DonneesTransit/${donneesTransitId}`);
+
+            if (response.status === 204) {
+                console.log(response.data);
+                return response.data;
+            } else {
+                throw new Error('Delete failed');
+            }
+        } catch (error: any) {
+            console.error(error);
+            return null;
+        }
+    },
+   
+    async postDonneesTransit(donneesTransit: any) {
+        try {
+            const response = await axios.post(`${API_URL}DonneesTransit`, donneesTransit, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (response.status === 201) {
+                console.log(response.data);
+                return response.data;
+            } else {
+                throw new Error('Post failed');
+            }
+        } catch (error: any) {
+            console.error(error);
+            return null;
+        }
     }
 }
 

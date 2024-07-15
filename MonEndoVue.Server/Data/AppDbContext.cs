@@ -11,5 +11,6 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : IdentityDbCo
     public DbSet<CarnetSante> CarnetSantes { get; set; }
     public DbSet<Medicament> Medicaments { get; set; }
     public DbSet<DonneesMedicament> DonneesMedicaments { get; set; }
+    public DbSet<DonneesTransit> DonneesTransit { get; set; }
 
 }

@@ -460,7 +460,7 @@ td, th {
 }
 
 .user-navbar {
-    z-index: 1000;
+    z-index: 9;
 
     .material-symbols-outlined {
         font-size: 1.5rem;

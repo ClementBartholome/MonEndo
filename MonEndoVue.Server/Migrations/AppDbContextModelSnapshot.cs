@@ -340,6 +340,44 @@ namespace MonEndoVue.Server.Migrations
                     b.ToTable("DonneesMedicaments");
                 });
 
+            modelBuilder.Entity("MonEndoVue.Server.Models.DonneesTransit", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CarnetSanteId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Commentaires")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Douleur")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Intensite")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Saignement")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("TypeEvenement")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CarnetSanteId");
+
+                    b.ToTable("DonneesTransit");
+                });
+
             modelBuilder.Entity("MonEndoVue.Server.Models.Medicament", b =>
                 {
                     b.Property<int>("Id")
@@ -472,6 +510,15 @@ namespace MonEndoVue.Server.Migrations
                     b.Navigation("Medicament");
                 });
 
+            modelBuilder.Entity("MonEndoVue.Server.Models.DonneesTransit", b =>
+                {
+                    b.HasOne("MonEndoVue.Server.Models.CarnetSante", null)
+                        .WithMany("DonneesTransit")
+                        .HasForeignKey("CarnetSanteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("MonEndoVue.Server.Models.Medicament", b =>
                 {
                     b.HasOne("MonEndoVue.Server.Models.CarnetSante", null)
@@ -488,6 +535,8 @@ namespace MonEndoVue.Server.Migrations
                     b.Navigation("DonneesDouleurs");
 
                     b.Navigation("DonneesMedicaments");
+
+                    b.Navigation("DonneesTransit");
 
                     b.Navigation("Medicaments");
                 });

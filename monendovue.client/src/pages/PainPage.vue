@@ -143,7 +143,7 @@
       <Datatable :entries="entries" :columns="columns" :deleteFunction="deleteDonneesDouleurs">
         <thead>
         <tr>
-          <th>Type de douleur</th>
+          <th>Type</th>
           <th>Date</th>
           <th>Heure</th>
           <th>Intensité</th>
