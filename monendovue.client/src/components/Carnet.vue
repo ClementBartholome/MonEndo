@@ -106,11 +106,10 @@
               <p v-if="isLoading" class="px-4">Chargement des données...</p>
               <div v-else-if="upcomingEvents.length === 0" class="text-start">Pas de rendez-vous à venir</div>
               <div v-else v-for="event in upcomingEvents" :key="event.id"
-                   class="rounded-lg shadow-md p-4 mb-4 bg-white flex flex-col min-w-40  justify-evenly px-16">
+                   class="rounded-lg shadow-md p-4 mb-4 bg-white flex flex-col min-w-40  justify-evenly">
                 <h2>{{ event.summary }}</h2>
-                <p>{{ event.description }}</p>
                 <p>{{ event.location }}</p>
-                <p class="mt-auto">
+                <p class="mt-auto text-highlight font-bold">
                   {{
                     event.start.dateTime
                         ? format(new Date(event.start.dateTime), "dd/MM 'à' H'h'mm")
