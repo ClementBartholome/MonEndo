@@ -1,6 +1,6 @@
 ﻿import axios from 'axios';
 
-const APP_URL = 'https://monendoapi.azurewebsites.net/'
+const APP_URL = 'https://localhost:7206/'
 
 const googleApiService = {
     async getAuthorizationUrl(userId: string) {
