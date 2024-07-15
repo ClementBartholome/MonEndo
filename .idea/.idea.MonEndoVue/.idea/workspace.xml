@@ -10,16 +10,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f99945a-a041-4f08-a884-b638ca21b13c" name="Changes" comment="mep 0.2 variables d'env">
-      <change afterPath="$PROJECT_DIR$/MonEndoVue.Server/Controllers/DonneesTransitController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MonEndoVue.Server/Models/DonneesTransit.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/monendovue.client/src/pages/TransitPage.vue" afterDir="false" />
+      <changelist_data name="Clément Bartholomé" email="clementoss@gmail.com" date="1721063708000" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MonEndoVue/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MonEndoVue/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonEndoVue.Server/Data/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonEndoVue.Server/Data/AppDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonEndoVue.Server/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonEndoVue.Server/Migrations/AppDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonEndoVue.Server/Models/CarnetSante.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonEndoVue.Server/Models/CarnetSante.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonEndoVue.Server/Services/CarnetSanteService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonEndoVue.Server/Services/CarnetSanteService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonEndoVue.Server/ViewModels/CarnetHomepageViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonEndoVue.Server/ViewModels/CarnetHomepageViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonEndoVue.Server/ViewModels/CarnetViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonEndoVue.Server/ViewModels/CarnetViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonEndoVue.Server/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/MonEndoVue.Server/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonEndoVue.Server/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/MonEndoVue.Server/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monendovue.client/src/components/Carnet.vue" beforeDir="false" afterPath="$PROJECT_DIR$/monendovue.client/src/components/Carnet.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monendovue.client/src/components/ui/toast/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/monendovue.client/src/components/ui/toast/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monendovue.client/src/pages/ActivitePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/monendovue.client/src/pages/ActivitePage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monendovue.client/src/pages/MedicamentPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/monendovue.client/src/pages/MedicamentPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monendovue.client/src/pages/PainPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/monendovue.client/src/pages/PainPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monendovue.client/src/pages/TransitPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/monendovue.client/src/pages/TransitPage.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +59,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "ClementBartholome"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/ClementBartholome/MonEndo.git",
+    "accountId": "97118879-afcd-4d3e-bb9e-204845f65f4f"
+  }
+}]]></component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/8e941eb42f819adb116b881195158b3887a70a1c/src/DefaultBuilder/src/WebApplicationBuilder.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/8e941eb42f819adb116b881195158b3887a70a1c/src/Mvc/Mvc.Core/src/Infrastructure/ActionMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
@@ -101,34 +113,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.MonEndoVue.Server: IIS Express.executor": "Debug",
-    ".NET Launch Settings Profile.MonEndoVue.Server: https.executor": "Debug",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "develop",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.monendovue.client: run.executor": "Debug",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "C:\\Users\\Clementoss\\source\\repos\\MonEndoVue\\monendovue.client\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.MonEndoVue.Server: IIS Express.executor&quot;: &quot;Debug&quot;,
+    &quot;.NET Launch Settings Profile.MonEndoVue.Server: https.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.monendovue.client: run.executor&quot;: &quot;Debug&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Clementoss\\source\\repos\\MonEndoVue\\monendovue.client\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\Clementoss\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\Clementoss\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\Clementoss\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\Clementoss\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\Clementoss\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\Clementoss\\AppData\\Local\\Symbols\\src&quot;
     ],
-    "vue.recent.templates": [
-      "Vue Composition API Component"
+    &quot;vue.recent.templates&quot;: [
+      &quot;Vue Composition API Component&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.MonEndoVue.Server: https">
     <configuration name="MonEndoVue.Server: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/MonEndoVue.Server/MonEndoVue.Server.csproj" />
@@ -230,6 +242,8 @@
       <workItem from="1720346012616" duration="5648000" />
       <workItem from="1720459981485" duration="1233000" />
       <workItem from="1720862331896" duration="688000" />
+      <workItem from="1721573213379" duration="53000" />
+      <workItem from="1721573569102" duration="4176000" />
     </task>
     <task id="LOCAL-00001" summary="feat(setup): initial commit">
       <option name="closed" value="true" />
@@ -396,7 +410,8 @@
     <MESSAGE value="refactor(api): correction url api de dev" />
     <MESSAGE value="style(agenda): on n'affiche pas le texte des boutons sur les écrans &lt;425px" />
     <MESSAGE value="feat(agenda): màj de la config utilisée pour Google Calendar API" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(agenda): màj de la config utilisée pour Google Calendar API" />
+    <MESSAGE value="feat(transit): ajout de la section transit" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(transit): ajout de la section transit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -481,7 +496,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/monendovue.client/src/components/Carnet.vue</url>
-          <line>192</line>
+          <line>194</line>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
       </breakpoints>

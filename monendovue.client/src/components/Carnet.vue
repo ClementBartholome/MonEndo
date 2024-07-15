@@ -29,7 +29,7 @@
               <i class="material-symbols-outlined" style="font-size: 48px;">sick</i>
               <CardTitle>Douleurs</CardTitle>
             </CardHeader>
-            <div v-if="isLoading" class="px-4">Chargement des données...</div>
+            <p v-if="isLoading" class="px-4">Chargement des données...</p>
             <CardContent v-else>
               <p v-if="lastDouleurEntry">
                 Dernière douleur ({{ lastDouleurEntry.typeDouleur }}) à <span class="highlight">{{
@@ -46,7 +46,7 @@
               <i class="material-symbols-outlined" style="font-size: 48px;">directions_run</i>
               <CardTitle>Activité Physique</CardTitle>
             </CardHeader>
-            <div v-if="isLoading" class="px-4">Chargement des données...</div>
+            <p v-if="isLoading" class="px-4">Chargement des données...</p>
             <CardContent v-else>
               <p v-if="lastActiviteEntry">
                 Dernière activité ({{ lastActiviteEntry.typeActivite }}) à <span
@@ -62,7 +62,8 @@
               <i class="material-symbols-outlined" style="font-size: 48px;">medical_services</i>
               <CardTitle>Traitements</CardTitle>
             </CardHeader>
-            <CardContent>
+            <p v-if="isLoading" class="px-4">Chargement des données...</p>
+            <CardContent v-else>
               <p v-if="lastMedicamentEntry">Dernière prise ({{ lastMedicamentEntry.nom }}) à <span
                   class="highlight">{{ lastMedicamentEntry.heure }}</span> le {{ lastMedicamentEntry.date }}
               </p>
@@ -76,7 +77,8 @@
               <i class="material-symbols-outlined" style="font-size: 48px;">gastroenterology</i>
               <CardTitle>Transit</CardTitle>
             </CardHeader>
-            <CardContent>
+            <p v-if="isLoading" class="px-4">Chargement des données...</p>
+            <CardContent v-else>
               <p v-if="lastTransitEntry">Dernier trouble ({{ lastTransitEntry.typeTransit }}) à <span
                   class="highlight">{{ lastTransitEntry.time }}</span> le {{ lastTransitEntry.date }}
               </p>
@@ -101,7 +103,7 @@
               <CardTitle>Mes prochains RDV</CardTitle>
             </CardHeader>
             <CardContent class="flex flex-col md:flex-row text-center gap-4 md:gap-16">
-              <div v-if="isLoading" class="px-4">Chargement des données...</div>
+              <p v-if="isLoading" class="px-4">Chargement des données...</p>
               <div v-else-if="upcomingEvents.length === 0" class="text-start">Pas de rendez-vous à venir</div>
               <div v-else v-for="event in upcomingEvents" :key="event.id"
                    class="rounded-lg shadow-md p-4 mb-4 bg-white flex flex-col min-w-40  justify-evenly px-16">

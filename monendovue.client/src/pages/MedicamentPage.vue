@@ -252,7 +252,9 @@ import apiService from "@/services/apiService";
 import {useAuthStore} from '@/store/auth';
 import {format, parseISO} from 'date-fns';
 import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger,} from '@/components/ui/dialog'
+import {useToast} from '@/components/ui/toast'
 
+const {toast} = useToast();
 const authStore = useAuthStore();
 const traitementsEnCours = ref<Medicament[]>([]);
 const medicaments = ref<Medicament[]>([]);
@@ -352,7 +354,19 @@ const onSubmitPriseForm = () => {
     carnetSanteId: authStore.user?.carnetSanteId,
   };
 
-  apiService.postDonneesPriseMedicament(valuesWithCarnetSanteId);
+  apiService.postDonneesPriseMedicament(valuesWithCarnetSanteId).then(() => {
+    toast({
+      title: 'Succès',
+      description: 'La prise de médicament a été enregistrée avec succès.',
+      variant: 'custom',
+    });
+  }).catch((error) => {
+    toast({
+      title: 'Erreur',
+      description: 'Une erreur est survenue lors de l\'enregistrement de la prise de médicament.',
+    });
+    console.error(error);
+  });
 
   const medicamentName = medicaments.value.find(med => med.id === values.medicamentId)?.nom;
 
@@ -376,34 +390,56 @@ const onSubmitTraitementForm = () => {
   };
 
   apiService.postMedicament(valuesWithCarnetSanteId).then((response) => {
+    toast({
+      title: 'Succès',
+      description: 'Le traitement a été ajouté avec succès.',
+      variant: 'custom',
+    });
     const medicamentAdded: any = {
       ...valuesWithCarnetSanteId,
       id: response.id 
     };
     traitementsEnCours.value.push(medicamentAdded);
     medicaments.value.push(medicamentAdded); 
+  }).catch((error) => {
+    toast({
+      title: 'Erreur',
+      description: 'Une erreur est survenue lors de l\'ajout du traitement.',
+    });
+    console.error(error);
   });
 };
 
 function editTraitement(traitementId) {
-
-
+  
   const traitementToEdit = traitementsEnCours.value.find(t => t.id === traitementId) || medicaments.value.find(m => m.id === traitementId);
 
   if (traitementToEdit) {
-    // Ensure dateDebutTraitement is a string in ISO format
-    let formattedDate;
+    let formattedStartDate, formattedEndDate;
+
     if (typeof traitementToEdit.dateDebutTraitement === 'string') {
-      formattedDate = format(parseISO(traitementToEdit.dateDebutTraitement), 'yyyy-MM-dd');
+      formattedStartDate = format(parseISO(traitementToEdit.dateDebutTraitement), 'yyyy-MM-dd');
     } else if (traitementToEdit.dateDebutTraitement instanceof Date) {
-      formattedDate = format(traitementToEdit.dateDebutTraitement, 'yyyy-MM-dd');
+      formattedStartDate = format(traitementToEdit.dateDebutTraitement, 'yyyy-MM-dd');
     } else {
       console.error('dateDebutTraitement is not in a valid format:', traitementToEdit.dateDebutTraitement);
     }
 
-    traitementForm.value = {...traitementToEdit, dateDebutTraitement: formattedDate};
+    if (traitementToEdit.dateFinTraitement) {
+      if (typeof traitementToEdit.dateFinTraitement === 'string') {
+        formattedEndDate = format(parseISO(traitementToEdit.dateFinTraitement), 'yyyy-MM-dd');
+      } else if (traitementToEdit.dateFinTraitement instanceof Date) {
+        formattedEndDate = format(traitementToEdit.dateFinTraitement, 'yyyy-MM-dd');
+      } else {
+        console.error('dateFinTraitement is not in a valid format:', traitementToEdit.dateFinTraitement);
+      }
+    } else {
+      formattedEndDate = '';
+    }
+
+    traitementForm.value = {...traitementToEdit, dateDebutTraitement: formattedStartDate, dateFinTraitement: formattedEndDate};
   } else {
-    console.log(`No treatment found with id: ${traitementId}`);
+    console.log(`Aucun traitement trouvé avec l'id: ${traitementId}`);
   }
 }
 
@@ -418,6 +454,11 @@ const onSubmitEditTraitement = () => {
   const traitementId: any = values.id;
 
   apiService.putDonneesMedicament(traitementId, valuesWithCarnetSanteId).then(() => {
+    toast({
+      title: 'Succès',
+      description: 'Le traitement a été mis à jour avec succès.',
+      variant: 'custom',
+    });
     const indexEnCours = traitementsEnCours.value.findIndex(traitement => traitement.id === traitementId);
     const indexPasses = traitementsPasses.value.findIndex(traitement => traitement.id === traitementId);
 
@@ -438,6 +479,12 @@ const onSubmitEditTraitement = () => {
         traitementsPasses.value.push(valuesWithCarnetSanteId);
       }
     }
+  }).catch((error) => {
+    toast({
+      title: 'Erreur',
+      description: 'Une erreur est survenue lors de la mise à jour du traitement.',
+    });
+    console.error(error);
   });
 };
 

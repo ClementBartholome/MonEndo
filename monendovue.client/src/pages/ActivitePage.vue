@@ -196,6 +196,9 @@ import {format} from 'date-fns';
 import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger,} from '@/components/ui/dialog'
 import {parse} from 'date-fns';
 import {Slider} from "@/components/ui/slider";
+import {useToast} from '@/components/ui/toast';
+
+const {toast} = useToast();
 
 const authStore = useAuthStore();
 
@@ -291,17 +294,29 @@ const onSubmit = form.handleSubmit((values) => {
     commentaire: values.commentaire ? values.commentaire : 'Pas de commentaire',
     carnetSanteId: authStore.user?.carnetSanteId,
   };
-  apiService.postDonneesActivitePhysique(valuesWithCarnetSanteId);
+  apiService.postDonneesActivitePhysique(valuesWithCarnetSanteId).then(() => {
+    toast({
+      title: 'Succès',
+      description: 'La session a été ajoutée avec succès',
+      variant: 'custom',
+    });
 
-  const valuesForView = {
-    ...valuesWithCarnetSanteId, date: format(values.date, 'dd/MM/yyyy'),
-    time: values.time.replace(":", "h"),
-    intensite: values.intensite[0],
-    effetDouleur: values.effetDouleur[0],
-  };
-  console.log(valuesForView)
-  delete valuesForView.carnetSanteId;
-  entries.value.push(valuesForView);
+    const valuesForView = {
+      ...valuesWithCarnetSanteId, date: format(values.date, 'dd/MM/yyyy'),
+      time: values.time.replace(":", "h"),
+      intensite: values.intensite[0],
+      effetDouleur: values.effetDouleur[0],
+    };
+    console.log(valuesForView)
+    delete valuesForView.carnetSanteId;
+    entries.value.push(valuesForView);
+  }).catch((error) => {
+    toast({
+      title: 'Erreur',
+      description: 'Un problème est survenu lors de l\'ajout de la douleur.',
+    });
+    console.error(error);
+  });
 });
 
 let timePeriod = ref('all');

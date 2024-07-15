@@ -118,7 +118,7 @@
             <i class="material-symbols-outlined text-3xl">trending_up</i>
             Tendances
           </h2>
-          <Select v-model="averageIntensityPeriod"> <!-- Step 2 -->
+          <Select v-model="averageIntensityPeriod">
             <SelectTrigger class="w-fit bg-white">
               <SelectValue class="w-fit">{{
                   averageIntensityPeriod === 'week' ? '7 derniers jours' : '30 derniers jours'
@@ -199,7 +199,9 @@ import Datatable from "@/components/Datatable.vue";
 
 
 import {parse} from 'date-fns';
+import {useToast} from '@/components/ui/toast';
 
+const {toast} = useToast();
 const authStore = useAuthStore();
 
 type Entry = Record<string, any>;
@@ -281,17 +283,29 @@ const onSubmit = form.handleSubmit((values) => {
     commentaire: values.commentaire ? values.commentaire : 'Pas de commentaire',
     carnetSanteId: authStore.user?.carnetSanteId,
   };
-  apiService.postDonneesDouleurs(valuesWithCarnetSanteId);
+  apiService.postDonneesDouleurs(valuesWithCarnetSanteId).then(() => {
+    toast({
+      title: 'Succès',
+      description: 'La douleur a été ajoutée avec succès.',
+      variant: 'custom',
+    });
 
-  const valuesForView = {
-    ...valuesWithCarnetSanteId, 
-    date: format(values.date, 'dd/MM/yyyy'),
-    time: values.time.replace(":", "h"),
-    intensite: values.intensite[0],
-  };
-  console.log(valuesForView)
-  delete valuesForView.carnetSanteId;
-  entries.value.push(valuesForView);
+    const valuesForView = {
+      ...valuesWithCarnetSanteId,
+      date: format(values.date, 'dd/MM/yyyy'),
+      time: values.time.replace(":", "h"),
+      intensite: values.intensite[0],
+    };
+    console.log(valuesForView)
+    delete valuesForView.carnetSanteId;
+    entries.value.push(valuesForView);
+  }).catch((error) => {
+    toast({
+      title: 'Erreur',
+      description: 'Un problème est survenu lors de l\'ajout de la douleur.',
+    });
+    console.error(error);
+  });
 });
 
 let timePeriod = ref('all');

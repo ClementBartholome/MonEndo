@@ -129,9 +129,9 @@
         </Dialog>
       </div>
     </div>
-    <section v-if="entries.length > 0"
-             class="container !mt-0 mb-16 mx-auto py-8 w-full bg-clearer rounded-3xl shadow-md ml-auto">
-      <Datatable :entries="entries" :columns="columns" :deleteFunction="deleteDonneesTransit">
+    <section
+        class="container !mt-0 mb-16 mx-auto py-8 w-full bg-clearer rounded-3xl shadow-md ml-auto">
+      <Datatable v-if="entries.length > 0" :entries="entries" :columns="columns" :deleteFunction="deleteDonneesTransit">
         <thead>
         <tr>
           <th>Type</th>
@@ -144,7 +144,11 @@
         </tr>
         </thead>
       </Datatable>
+      <div v-else class="flex justify-center items-center h-32">
+        <p class="text-2xl text-center">Aucune donnée pour le moment.</p>
+      </div>
     </section>
+
   </div>
 </template>
 
@@ -163,6 +167,9 @@ import apiService from "@/services/apiService";
 import {useAuthStore} from '@/store/auth';
 import {format} from 'date-fns';
 import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger,} from '@/components/ui/dialog'
+import {useToast} from '@/components/ui/toast'
+
+const {toast} = useToast();
 
 const authStore = useAuthStore();
 
@@ -190,7 +197,7 @@ const entry = ref<Entry>({
   typeEvenement: '',
   date: '',
   time: '',
-  intensite: '', 
+  intensite: '',
   saignement: false,
   douleurs: false,
   commentaire: ''
@@ -232,18 +239,33 @@ const onSubmit = () => {
     carnetSanteId: authStore.user?.carnetSanteId,
     douleur: entry.value.douleurs
   };
-  apiService.postDonneesTransit(valuesWithCarnetSanteId);
 
-  const valuesForView = {
-    ...valuesWithCarnetSanteId,
-    date: format(values.date, 'dd/MM/yyyy'),
-    time: values.time.replace(":", "h"),
-    douleurs: values.douleurs ? 'Oui' : 'Non',
-    saignement: values.saignement ? 'Oui' : 'Non',
-  };
-  console.log(valuesForView);
-  delete valuesForView.carnetSanteId;
-  entries.value.push(valuesForView);
+  apiService.postDonneesTransit(valuesWithCarnetSanteId)
+      .then(() => {
+        toast({
+          title: 'Succès',
+          description: 'Les données de transit ont été ajoutées avec succès.',
+          variant: 'custom',
+        });
+
+        const valuesForView = {
+          ...valuesWithCarnetSanteId,
+          date: format(values.date, 'dd/MM/yyyy'),
+          time: values.time.replace(":", "h"),
+          douleurs: values.douleurs ? 'Oui' : 'Non',
+          saignement: values.saignement ? 'Oui' : 'Non',
+        };
+        console.log(valuesForView);
+        delete valuesForView.carnetSanteId;
+        entries.value.push(valuesForView);
+      })
+      .catch((error) => {
+        toast({
+          title: 'Erreur',
+          description: 'Une erreur est survenue lors de l\'ajout des données de transit.',
+        });
+        console.error(error);
+      });
 };
 
 
