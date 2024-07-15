@@ -9,9 +9,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f99945a-a041-4f08-a884-b638ca21b13c" name="Changes" comment="style(transition): ajout d'une animation fade entre les pages">
+    <list default="true" id="2f99945a-a041-4f08-a884-b638ca21b13c" name="Changes" comment="mep 0.2 variables d'env">
+      <change afterPath="$PROJECT_DIR$/MonEndoVue.Server/Controllers/DonneesTransitController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MonEndoVue.Server/Models/DonneesTransit.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/monendovue.client/src/pages/TransitPage.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MonEndoVue/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MonEndoVue/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/monendovue.client/src/assets/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/monendovue.client/src/assets/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonEndoVue.Server/Data/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonEndoVue.Server/Data/AppDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonEndoVue.Server/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonEndoVue.Server/Migrations/AppDbContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonEndoVue.Server/Models/CarnetSante.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonEndoVue.Server/Models/CarnetSante.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonEndoVue.Server/Services/CarnetSanteService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonEndoVue.Server/Services/CarnetSanteService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonEndoVue.Server/ViewModels/CarnetHomepageViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonEndoVue.Server/ViewModels/CarnetHomepageViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MonEndoVue.Server/ViewModels/CarnetViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MonEndoVue.Server/ViewModels/CarnetViewModel.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +54,7 @@
     </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="mep-0.2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -93,38 +101,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.MonEndoVue.Server: IIS Express.executor&quot;: &quot;Debug&quot;,
-    &quot;.NET Launch Settings Profile.MonEndoVue.Server: https.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.monendovue.client: run.executor&quot;: &quot;Debug&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Clementoss\\source\\repos\\MonEndoVue\\monendovue.client\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.MonEndoVue.Server: IIS Express.executor": "Debug",
+    ".NET Launch Settings Profile.MonEndoVue.Server: https.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "develop",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.monendovue.client: run.executor": "Debug",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "C:\\Users\\Clementoss\\source\\repos\\MonEndoVue\\monendovue.client\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\Clementoss\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\Clementoss\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\Clementoss\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\Clementoss\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\Clementoss\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\Clementoss\\AppData\\Local\\Symbols\\src"
     ],
-    &quot;vue.recent.templates&quot;: [
-      &quot;Vue Composition API Component&quot;
+    "vue.recent.templates": [
+      "Vue Composition API Component"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.MonEndoVue.Server: https">
-    <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" requestIdentifier="#1" runType="Run single request">
-      <method v="2" />
-    </configuration>
     <configuration name="MonEndoVue.Server: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/MonEndoVue.Server/MonEndoVue.Server.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
@@ -165,11 +170,6 @@
       <envs />
       <method v="2" />
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="HTTP Request.generated-requests | #1" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -230,7 +230,6 @@
       <workItem from="1720346012616" duration="5648000" />
       <workItem from="1720459981485" duration="1233000" />
       <workItem from="1720862331896" duration="688000" />
-      <workItem from="1721056222952" duration="564000" />
     </task>
     <task id="LOCAL-00001" summary="feat(setup): initial commit">
       <option name="closed" value="true" />
@@ -368,31 +367,7 @@
       <option name="project" value="LOCAL" />
       <updated>1720452262985</updated>
     </task>
-    <task id="LOCAL-00018" summary="fix url api dev">
-      <option name="closed" value="true" />
-      <created>1721033568485</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1721033568485</updated>
-    </task>
-    <task id="LOCAL-00019" summary="style(titres): retrait du font weight bold sur les titres">
-      <option name="closed" value="true" />
-      <created>1721033604325</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1721033604325</updated>
-    </task>
-    <task id="LOCAL-00020" summary="style(transition): ajout d'une animation fade entre les pages">
-      <option name="closed" value="true" />
-      <created>1721034110439</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1721034110439</updated>
-    </task>
-    <option name="localTasksCounter" value="21" />
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -421,10 +396,7 @@
     <MESSAGE value="refactor(api): correction url api de dev" />
     <MESSAGE value="style(agenda): on n'affiche pas le texte des boutons sur les écrans &lt;425px" />
     <MESSAGE value="feat(agenda): màj de la config utilisée pour Google Calendar API" />
-    <MESSAGE value="fix url api dev" />
-    <MESSAGE value="style(titres): retrait du font weight bold sur les titres" />
-    <MESSAGE value="style(transition): ajout d'une animation fade entre les pages" />
-    <option name="LAST_COMMIT_MESSAGE" value="style(transition): ajout d'une animation fade entre les pages" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(agenda): màj de la config utilisée pour Google Calendar API" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -443,6 +415,32 @@
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/MonEndoVue.Server/Controllers/GoogleApiController.cs</url>
+          <line>18</line>
+          <properties documentPath="C:\Users\Clementoss\source\repos\MonEndoVue\MonEndoVue.Server\Controllers\GoogleApiController.cs" containingFunctionPresentation="Method 'Authorize'">
+            <startOffsets>
+              <option value="625" />
+            </startOffsets>
+            <endOffsets>
+              <option value="626" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/MonEndoVue.Server/Controllers/GoogleApiController.cs</url>
+          <line>43</line>
+          <properties documentPath="C:\Users\Clementoss\source\repos\MonEndoVue\MonEndoVue.Server\Controllers\GoogleApiController.cs" containingFunctionPresentation="Method 'Authenticate'">
+            <startOffsets>
+              <option value="1542" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1543" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/MonEndoVue.Server/Services/GoogleApiService.cs</url>
           <line>16</line>
           <properties documentPath="C:\Users\Clementoss\source\repos\MonEndoVue\MonEndoVue.Server\Services\GoogleApiService.cs" containingFunctionPresentation="Method 'GetAuthorizationUrl'">
@@ -456,30 +454,35 @@
           <option name="timeStamp" value="40" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/MonEndoVue.Server/Services/CarnetSanteService.cs</url>
-          <line>90</line>
-          <properties documentPath="C:\Users\Clementoss\source\repos\MonEndoVue\MonEndoVue.Server\Services\CarnetSanteService.cs" containingFunctionPresentation="Method 'GetLastEntries'">
+          <url>file://$PROJECT_DIR$/MonEndoVue.Server/Controllers/GoogleApiController.cs</url>
+          <line>65</line>
+          <properties documentPath="C:\Users\Clementoss\source\repos\MonEndoVue\MonEndoVue.Server\Controllers\GoogleApiController.cs" containingFunctionPresentation="Method 'RefreshToken'">
             <startOffsets>
-              <option value="2961" />
+              <option value="2325" />
             </startOffsets>
             <endOffsets>
-              <option value="3311" />
+              <option value="2326" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="44" />
+          <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/MonEndoVue.Server/Controllers/DonneesMedicamentController.cs</url>
-          <line>65</line>
-          <properties documentPath="C:\Users\Clementoss\source\repos\MonEndoVue\MonEndoVue.Server\Controllers\DonneesMedicamentController.cs" containingFunctionPresentation="Method 'PostDonneesMedicament'">
+          <url>file://$PROJECT_DIR$/MonEndoVue.Server/Controllers/GoogleApiController.cs</url>
+          <line>38</line>
+          <properties documentPath="C:\Users\Clementoss\source\repos\MonEndoVue\MonEndoVue.Server\Controllers\GoogleApiController.cs" containingFunctionPresentation="Method 'Authorize'">
             <startOffsets>
-              <option value="2082" />
+              <option value="1414" />
             </startOffsets>
             <endOffsets>
-              <option value="2083" />
+              <option value="1443" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="45" />
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/monendovue.client/src/components/Carnet.vue</url>
+          <line>192</line>
+          <option name="timeStamp" value="43" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

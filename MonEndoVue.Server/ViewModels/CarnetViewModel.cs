@@ -9,5 +9,6 @@ public class CarnetViewModel
     public List<DonneesDouleur>? DonneesDouleur { get; set; }
     public List<DonneesActivitePhysique>? DonneesActivitePhysique { get; set; }
     public IEnumerable<DonneesMedicamentViewModel>? DonneesMedicament { get; set; }
+    public List<DonneesTransit>? DonneesTransit { get; set; }
     public List<Medicament>? Medicaments { get; set; }
 }

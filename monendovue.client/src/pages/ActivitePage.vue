@@ -161,12 +161,13 @@
       <Datatable :entries="entries" :columns="columns" :deleteFunction="deleteDonneesActivitePhysique">
         <thead>
         <tr>
-          <th>Type d'activité</th>
+          <th>Type</th>
           <th>Date</th>
           <th>Heure</th>
           <th>Durée</th>
           <th>Intensité</th>
           <th>Effet sur la douleur</th>
+          <th>Commentaire</th>
           <th></th>
         </tr>
         </thead>
@@ -205,6 +206,7 @@ const columns: any = [
   {data: 'duree'},
   {data: 'intensite'},
   {data: 'effetDouleur'},
+  {data: 'commentaire'},
   {
     data: null,
     defaultContent: '<span class="material-symbols-outlined delete-btn">delete</span>'

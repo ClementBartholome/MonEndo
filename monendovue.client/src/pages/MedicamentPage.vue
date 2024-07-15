@@ -262,7 +262,6 @@ const prise = ref<PriseMedicament>({nom: '', date: '', time: '', commentaire: ''
 const traitement = ref({nom: '', posologie: '', dateDebutTraitement: ''});
 const isLoading = ref(true);
 
-
 type Entry = Record<string, any>;
 
 const traitementForm: any = ref({

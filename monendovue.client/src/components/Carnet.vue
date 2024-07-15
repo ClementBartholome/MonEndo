@@ -70,6 +70,20 @@
             </CardContent>
           </Card>
         </router-link>
+        <router-link to="/transit">
+          <Card>
+            <CardHeader>
+              <i class="material-symbols-outlined" style="font-size: 48px;">gastroenterology</i>
+              <CardTitle>Transit</CardTitle>
+            </CardHeader>
+<!--            <CardContent>-->
+<!--              <p v-if="lastMedicamentEntry">Dernière prise ({{ lastMedicamentEntry.nom }}) à <span-->
+<!--                  class="highlight">{{ lastMedicamentEntry.heure }}</span> le {{ lastMedicamentEntry.date }}-->
+<!--              </p>-->
+<!--              <p v-else>Pas de données</p>-->
+<!--            </CardContent>-->
+          </Card>
+        </router-link>
         <!--        <Card>-->
         <!--          <CardHeader>-->
         <!--            <i class="material-symbols-outlined" style="font-size: 48px;">menstrual_health</i>-->

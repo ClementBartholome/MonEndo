@@ -59,6 +59,7 @@ public class CarnetSanteService
             .Include(c => c.DonneesActivitePhysique.OrderBy(d => d.Date))
             .Include(c => c.Medicaments)
             .Include(c => c.DonneesMedicaments.OrderBy(d => d.Date))
+            .Include(c => c.DonneesTransit.OrderBy(d => d.Date))
             .FirstOrDefaultAsync(c => c.Id == carnetSanteId);
 
         if (carnetSante == null)
@@ -80,6 +81,7 @@ public class CarnetSanteService
             CarnetSanteId = carnetSante.Id,
             DonneesDouleur = carnetSante.DonneesDouleurs,
             DonneesActivitePhysique = carnetSante.DonneesActivitePhysique,
+            DonneesTransit = carnetSante.DonneesTransit,
             Medicaments = carnetSante.Medicaments,
             DonneesMedicament = donneesMedicamentViewModel
         };
@@ -93,6 +95,7 @@ public class CarnetSanteService
             .Include(c => c.DonneesDouleurs.OrderBy(d => d.Date))
             .Include(c => c.DonneesActivitePhysique.OrderBy(d => d.Date))
             .Include(c => c.DonneesMedicaments.OrderBy(d => d.Date))
+            .Include(c => c.DonneesTransit.OrderBy(d => d.Date))
             .FirstOrDefaultAsync(c => c.Id == carnetSanteId);
 
         if (carnetSante == null)
@@ -115,6 +118,11 @@ public class CarnetSanteService
             .OrderByDescending(d => d.Date)
             .Include(d => d.Medicament)
             .FirstOrDefaultAsync();
+        
+        var derniereDonneesTransit = await _context.DonneesTransit
+            .Where(d => d.CarnetSanteId == carnetSanteId)
+            .OrderByDescending(d => d.Date)
+            .FirstOrDefaultAsync();
 
         return new CarnetHomepageViewModel
         {
@@ -123,6 +131,7 @@ public class CarnetSanteService
             DonneesDouleur = derniereDonneesDouleur,
             DonneesActivitePhysique = derniereDonneesActivitePhysique,
             DonneesMedicament = derniereDonneesMedicaments,
+            DonneesTransit = derniereDonneesTransit,
             NomMedicament = derniereDonneesMedicaments?.Medicament?.Nom
         };
     }

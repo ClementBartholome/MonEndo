@@ -6,6 +6,7 @@ import {useAuthStore} from "@/store/auth";
 import PainPage from "@/pages/PainPage.vue";
 import ActivitePage from "@/pages/ActivitePage.vue";
 import MedicamentPage from "@/pages/MedicamentPage.vue";
+import TransitPage from "@/pages/TransitPage.vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,6 +33,11 @@ const router = createRouter({
             path: '/activite',
             name: 'activite',
             component: ActivitePage,
+        },
+        {
+            path: '/transit',
+            name: 'transit',
+            component: TransitPage,
         },
         {
             path: '/medicaments',
