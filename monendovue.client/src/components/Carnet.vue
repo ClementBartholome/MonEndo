@@ -76,12 +76,12 @@
               <i class="material-symbols-outlined" style="font-size: 48px;">gastroenterology</i>
               <CardTitle>Transit</CardTitle>
             </CardHeader>
-<!--            <CardContent>-->
-<!--              <p v-if="lastMedicamentEntry">Dernière prise ({{ lastMedicamentEntry.nom }}) à <span-->
-<!--                  class="highlight">{{ lastMedicamentEntry.heure }}</span> le {{ lastMedicamentEntry.date }}-->
-<!--              </p>-->
-<!--              <p v-else>Pas de données</p>-->
-<!--            </CardContent>-->
+            <CardContent>
+              <p v-if="lastTransitEntry">Dernier trouble ({{ lastTransitEntry.typeTransit }}) à <span
+                  class="highlight">{{ lastTransitEntry.time }}</span> le {{ lastTransitEntry.date }}
+              </p>
+              <p v-else>Pas de données</p>
+            </CardContent>
           </Card>
         </router-link>
         <!--        <Card>-->
@@ -338,6 +338,23 @@ const lastMedicamentEntry = computed(() => {
     return {
       nom: lastEntry.medicament.nom,
       heure: time,
+      date: date.toLocaleDateString()
+    };
+  }
+  return null;
+});
+
+const lastTransitEntry = computed(() => {
+  if (donneesCarnetSante.value && donneesCarnetSante.value.donneesTransit) {
+    const lastEntry = donneesCarnetSante.value.donneesTransit;
+    console.log(lastEntry)
+    const date = new Date(lastEntry.date);
+    const hours = date.getHours().toString().padStart(2, '0');
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+    const time = `${hours}h${minutes}`;
+    return {
+      typeTransit: lastEntry.typeEvenement,
+      time: time,
       date: date.toLocaleDateString()
     };
   }
